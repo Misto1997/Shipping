@@ -1,0 +1,37 @@
+<div class="mainContainer">
+    <button id="c1" (click)="changeValue(true)">Login</button>
+    <button id="c1" (click)="changeValue(false)">SignUp</button>
+   
+<div *ngIf="disp">
+  <h1 style="text-align:center">Login</h1>
+  <form [formGroup]="login" (ngSubmit)="onSubmit(login.value)">
+
+      <label  for="cno"><b id="labels">Login As</b></label><br>
+      <input  type="radio"  value="admin" formControlName="loginType"> <b id="labels">Admin</b>
+      <input  type="radio"  value="user" formControlName="loginType"><b id="labels">User</b><br>
+      <input  type="number"  placeholder="Registered Number.." formControlName="cId"/><br><br>
+      <input  type="password"  placeholder="Password.." formControlName="pass"/><br><br>
+      <br><br>
+      <input id="submit" type="submit" value="Submit"/>
+
+  </form>
+  </div>
+
+
+
+  <div *ngIf="disp1">
+    <h1 style="text-align:center">SignUp</h1>
+  
+    <div>
+      <label for="cno"><b>Customer Id(Registered Mobile Number)</b></label><br>
+      <input type="number" placeholder="Enter Mobile Number.." #cno required>
+       <br><br><br>
+      <label for="psw"><b>Password</b></label><br>
+      <input type="password" placeholder="Enter Password" #psw required>
+         <br> 
+      <button  id="submit" (click)="getItem(cno.value,psw.value)">SignUp</button>
+      
+       
+    </div>
+  </div>
+</div>
