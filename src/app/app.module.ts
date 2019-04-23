@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { FooterComponent } from './footer/footer.component';
 import { UsercontactComponent } from './usercontact/usercontact.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 
 
@@ -17,6 +18,7 @@ import { UsercontactComponent } from './usercontact/usercontact.component';
     UserhomeComponent,
     FooterComponent,
     UsercontactComponent,
+    AdminhomeComponent,
    
     
   ],
