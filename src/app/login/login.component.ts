@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl,FormGroup,Validators, AbstractControl} from '@angular/forms';
+import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,17 +24,34 @@ export class LoginComponent {
     this.login=new FormGroup({
       loginType:new FormControl('',[Validators.required]),
       cId:new FormControl('',[Validators.required]),
-      pass:new FormControl( '',[Validators.required])
+      pass:new FormControl( '',[Validators.required]),
       
     });
 
     this.signUp=new FormGroup({
-      fname:new FormControl('',[Validators.required]),
-      lname:new FormControl('',[Validators.required]),
-      cId:new FormControl('',[Validators.required]),
-      pass:new FormControl('',[Validators.required]),
+      fname:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z ]+')]),
+      lname:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z ]+')]),
+      cId:new FormControl('',[Validators.required,Validators.pattern('[6-9]{1}[0-9]{9}')]),
+      pass:new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('[a-zA-Z]+[@_]{1}[0-9]+')]),
       cpass:new FormControl('',[Validators.required])
-    });
+    },
+    { 
+      validators : [ this.confirmPass]
+   }
+    );
+  }
+  confirmPass : ValidatorFn = (control: FormGroup): ValidationErrors | null => 
+  {
+    const pass = control.get('pass');
+    const cpass = control.get('cpass');
+
+      if( pass.value === cpass.value )
+         return  null ;
+      else
+      {
+          cpass.setErrors({ 'noMatch' : true});
+          return  ;
+      }  
   }
 
   get loginPush()
@@ -56,11 +73,13 @@ export class LoginComponent {
       {
         this.disp1=true;
         this.disp=false;
+        this.signUpSubmit = false;
       }
     else
       {
         this.disp1=false;
         this.disp=true;
+        this.loginSubmit = false;
       }
 
   }

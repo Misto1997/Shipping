@@ -24,7 +24,7 @@ import { UsercontactComponent } from './usercontact/usercontact.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
