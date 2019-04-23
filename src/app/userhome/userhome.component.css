@@ -1,14 +1,9 @@
 #home ,#contact, #profile,#myorder{
-    margin-left: 10px;
-    font-weight: 300;
-    font-size: 18px;
-    margin-top: 10px;
-  
+   
+      margin-left: 20px;
+      font-size: 18px;
+}
 
-}
-body{
-    background-color: tomato;
-}
 #home:hover, #contact:hover, #profile:hover,#myorder:hover{
     color: lightcoral
 }
