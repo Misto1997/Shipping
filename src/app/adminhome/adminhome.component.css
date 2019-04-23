@@ -1,0 +1,31 @@
+#home ,#contact, #profile,#myorder{
+    margin-left: 10px;
+    font-weight: 300;
+    font-size: 18px;
+    margin-top: 10px;
+  
+
+}
+#home:hover, #contact:hover, #profile:hover,#myorder:hover{
+    color: lightcoral
+}
+
+#logout{
+    margin-right: 15px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    font-weight: 700;
+}
+#logout:hover{
+    margin-right: 15px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightcoral;
+    font-weight: 700;
+}
+#logo{
+ font-family: 'Faster One', cursive,bold;
+ font-size: 55px;
+ color: tomato
+}

@@ -8,6 +8,10 @@ import { UserhomeComponent } from './userhome/userhome.component';
 import { FooterComponent } from './footer/footer.component';
 import { UsercontactComponent } from './usercontact/usercontact.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { OrdersComponent } from './adminhome/orders/orders.component';
+import { ProfileComponent } from './adminhome/profile/profile.component';
+import { AddEmployeeComponent } from './adminhome/add-employee/add-employee.component';
+import { DeleteUserComponent } from './adminhome/delete-user/delete-user.component';
 
 
 
@@ -19,6 +23,10 @@ import { AdminhomeComponent } from './adminhome/adminhome.component';
     FooterComponent,
     UsercontactComponent,
     AdminhomeComponent,
+    OrdersComponent,
+    ProfileComponent,
+    AddEmployeeComponent,
+    DeleteUserComponent,
    
     
   ],
