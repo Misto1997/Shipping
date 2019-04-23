@@ -12,6 +12,7 @@ import { OrdersComponent } from './adminhome/orders/orders.component';
 import { ProfileComponent } from './adminhome/profile/profile.component';
 import { AddEmployeeComponent } from './adminhome/add-employee/add-employee.component';
 import { DeleteUserComponent } from './adminhome/delete-user/delete-user.component';
+import { LogoutComponent } from './adminhome/logout/logout.component';
 
 
 
@@ -27,6 +28,7 @@ import { DeleteUserComponent } from './adminhome/delete-user/delete-user.compone
     ProfileComponent,
     AddEmployeeComponent,
     DeleteUserComponent,
+    LogoutComponent,
    
     
   ],
