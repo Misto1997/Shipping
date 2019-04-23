@@ -1,0 +1,18 @@
+footer{
+    background-color: black;
+     position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+}
+#copyright{
+    font-size:20px;
+    color: lightslategrey;
+    text-align: center;
+}
+#f1{
+    text-align: center;
+    margin-bottom:10px;
+    font-size: 25px;
+    color: lightslategray;
+}
