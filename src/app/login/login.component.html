@@ -2,36 +2,64 @@
     <button id="c1" (click)="changeValue(true)">Login</button>
     <button id="c1" (click)="changeValue(false)">SignUp</button>
    
-<div *ngIf="disp">
-  <h1 style="text-align:center">Login</h1>
-  <form [formGroup]="login" (ngSubmit)="onSubmit(login.value)">
+      <div *ngIf="disp">
 
-      <label  for="cno"><b id="labels">Login As</b></label><br>
-      <input  type="radio"  value="admin" formControlName="loginType"> <b id="labels">Admin</b>
-      <input  type="radio"  value="user" formControlName="loginType"><b id="labels">User</b><br>
-      <input  type="number"  placeholder="Registered Number.." formControlName="cId"/><br><br>
-      <input  type="password"  placeholder="Password.." formControlName="pass"/><br><br>
-      <br><br>
-      <input id="submit" type="submit" value="Submit"/>
+          <form [formGroup]="login" (ngSubmit)="onSubmit(login.value)">
+              <br>
+              <label  for="type"><b style="font-size: 25px;">Login As</b></label><br>
+              <input  type="radio"  value="admin"  formControlName="loginType"> <b id="labels">Admin</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input  type="radio"  value="user" formControlName="loginType"> <b id="labels">User</b>
+              <div *ngIf=" submitted && f.loginType.errors " >
+                <div *ngIf="f.loginType.errors.required" ><p style="color: red">Select type</p></div>
+              </div>
+              <br><br>
 
-  </form>
-  </div>
+              <label  for="cno"><b id="labels">User ID</b></label><br>
+              <input  type="number"  name="cId" placeholder="Registered Number......" formControlName="cId"/>
+              <div *ngIf=" submitted && f.cId.errors " >
+                <div *ngIf="f.cId.errors.required" ><p style="color: red">Enter Id</p> </div>
+              </div>
+              <br><br>
+
+              <label  for="pass"><b id="labels">Password</b></label><br>
+              <input  type="password"  name="pass" placeholder="Password......" formControlName="pass"/>
+              <div *ngIf=" submitted && f.cId.errors " >
+                <div *ngIf="f.cId.errors.required" ><p style="color: red">Enter password</p></div>
+              </div>
+              <br><br>
+            
+              <input id="submit" type="submit" value="Submit"/>
+
+          </form>
+
+      </div>
 
 
 
-  <div *ngIf="disp1">
-    <h1 style="text-align:center">SignUp</h1>
-  
-    <div>
-      <label for="cno"><b>Customer Id(Registered Mobile Number)</b></label><br>
-      <input type="number" placeholder="Enter Mobile Number.." #cno required>
-       <br><br><br>
-      <label for="psw"><b>Password</b></label><br>
-      <input type="password" placeholder="Enter Password" #psw required>
-         <br> 
-      <button  id="submit" (click)="getItem(cno.value,psw.value)">SignUp</button>
+      <div *ngIf="disp1">
+
+          <form [formGroup]="signUp" (ngSubmit)="onSubmit(signUp.value)">
       
-       
-    </div>
-  </div>
+              <label  for="fname"><b id="labels">First Name</b></label><br>
+              <input  type="text"  name="fname" placeholder="First Name......" formControlName="fname"/><br><br>
+        
+              <label  for="lname"><b id="labels">Last Name</b></label><br>
+              <input  type="text"  name="lname" placeholder="Last Name......" formControlName="lname"/><br><br>
+
+              <label  for="cno"><b id="labels">User ID</b></label><br>
+              <input  type="number"  name="cId" placeholder="Phone Number......" formControlName="cId"/><br><br>
+
+              <label  for="pass"><b id="labels">Password</b></label><br>
+              <input  type="password"  name="pass" placeholder="Password......" formControlName="pass"/><br><br>
+
+              <label  for="cpass"><b id="labels">Confirm Password</b></label><br>
+              <input  type="password"  name="cpass" placeholder="Confirm Password......" formControlName="cpass"/><br><br>
+              <br>
+
+              <input id="submit" type="submit" value="Submit"/>
+
+          </form>
+
+      </div>
+
 </div>
