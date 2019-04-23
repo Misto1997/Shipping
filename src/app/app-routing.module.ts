@@ -16,16 +16,16 @@ const routes: Routes =
     { path : "login"  , component : LoginComponent},
     { path : "adminHome" , component : AdminhomeComponent ,                   //, canActivate : [AuthenticateGuard] ,
       children : [
-                    { path : 'orders' ,  component : OrdersComponent} , 
-                    { path : 'logout' ,  component : LogoutComponent} , 
-                    { path : 'delUser' , component : DeleteUserComponent},
-                    { path : 'profile' ,  component : ProfileComponent },
+                    { path : "orders" ,  component : OrdersComponent} , 
+                    { path : "logout" ,  component : LogoutComponent} , 
+                    { path : "delUser" , component : DeleteUserComponent},
+                    { path : "profile" ,  component : ProfileComponent }
                  ]
     },
     { path : "userHome" , component : UserhomeComponent ,                   //, canActivate : [AuthenticateGuard] ,
       children : [
-                    { path : 'usercontact' ,  component :  UsercontactComponent } , 
-                    { path : 'logout' ,  component : LogoutComponent} , 
+                    { path : "userContact" ,  component :  UsercontactComponent } , 
+                    { path : "logout" ,  component : LogoutComponent} 
                  ]
     }
  ];
