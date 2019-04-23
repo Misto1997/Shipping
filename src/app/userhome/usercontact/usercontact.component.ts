@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl , FormGroup ,Validators ,ValidatorFn , ValidationErrors , AbstractControl} from '@angular/forms';
 
 @Component({
   selector: 'usercontact',
@@ -7,7 +6,6 @@ import {FormControl , FormGroup ,Validators ,ValidatorFn , ValidationErrors , Ab
   styleUrls: ['./usercontact.component.css']
 })
 export class UsercontactComponent implements OnInit {
-  form : FormGroup;
 
   constructor() { }
 

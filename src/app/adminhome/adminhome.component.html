@@ -1,0 +1,24 @@
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" id="logo" href="#">Cc</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a routerLink="adminHome" id="home">Home</a></li>
+      <li><a routerLink="orders" id="orders" >Orders</a></li>
+      <li><a routerLink="profile" id="profile">Profile</a></li>
+      <li><a routerLink="addEmp" id="addEmp">Add Employee</a></li>
+      <li><a routerLink="delUser" id="delUser">Delete User</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      
+      <li><a routerLink="logout" id="logout"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
