@@ -12,7 +12,8 @@ export class LoginComponent {
   login;
   signUp;
 
-  submitted : boolean = false ;
+  loginSubmit : boolean = false ;
+  signUpSubmit : boolean = false ;
 
   disp:boolean=true;
   disp1:boolean=false;
@@ -28,17 +29,21 @@ export class LoginComponent {
     });
 
     this.signUp=new FormGroup({
-      fname:new FormControl(""),
-      lname:new FormControl(""),
-      cId:new FormControl(""),
-      pass:new FormControl(""),
-      cpass:new FormControl("")
+      fname:new FormControl('',[Validators.required]),
+      lname:new FormControl('',[Validators.required]),
+      cId:new FormControl('',[Validators.required]),
+      pass:new FormControl('',[Validators.required]),
+      cpass:new FormControl('',[Validators.required])
     });
   }
 
-  get f()
+  get loginPush()
   {
        return this.login.controls; 
+  }
+  get signUpPush()
+  {
+       return this.signUp.controls; 
   }
 
   
@@ -60,13 +65,19 @@ export class LoginComponent {
 
   }
 
-  onSubmit(login)
+  onLoginSubmit(login)
   {
-      this.submitted = true;
+      this.loginSubmit = true;
       if(this.login.invalid)   
-        return;  
-
+        return; 
       console.log(login);
+  }
+  onSignUpSubmit(submit)
+  {
+      this.signUpSubmit = true;
+      if(this.signUp.invalid)   
+        return;
+      console.log(submit);
   }
 
    

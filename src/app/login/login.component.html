@@ -4,33 +4,33 @@
    
       <div *ngIf="disp">
 
-          <form [formGroup]="login" (ngSubmit)="onSubmit(login.value)">
-              <br>
-              <label  for="type"><b style="font-size: 25px;">Login As</b></label><br>
-              <input  type="radio"  value="admin"  formControlName="loginType"> <b id="labels">Admin</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input  type="radio"  value="user" formControlName="loginType"> <b id="labels">User</b>
-              <div *ngIf=" submitted && f.loginType.errors " >
-                <div *ngIf="f.loginType.errors.required" ><p style="color: red">Select type</p></div>
-              </div>
-              <br><br>
+            <form [formGroup]="login" (ngSubmit)="onLoginSubmit(login.value)">
+                <br>
+                <label  for="type"><b style="font-size: 25px;">Login As</b></label><br><br>
+                <input  type="radio"  value="admin"  formControlName="loginType"> <b id="labels">Admin</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input  type="radio"  value="user" formControlName="loginType"> <b id="labels">User</b>
+                <div *ngIf="loginSubmit && loginPush.loginType.errors" >
+                  <div *ngIf="loginPush.loginType.errors.required" ><p style="color: red">Select type</p></div>
+                </div>
+                <br><br>
 
-              <label  for="cno"><b id="labels">User ID</b></label><br>
-              <input  type="number"  name="cId" placeholder="Registered Number......" formControlName="cId"/>
-              <div *ngIf=" submitted && f.cId.errors " >
-                <div *ngIf="f.cId.errors.required" ><p style="color: red">Enter Id</p> </div>
-              </div>
-              <br><br>
+                <label  for="cno"><b id="labels">User ID</b></label><br>
+                <input  type="number"  name="cId" placeholder="Registered Number......" formControlName="cId"/>
+                <div *ngIf="loginSubmit && loginPush.cId.errors" >
+                  <div *ngIf="loginPush.cId.errors.required" ><p style="color: red">Enter Id</p> </div>
+                </div>
+                <br><br>
 
-              <label  for="pass"><b id="labels">Password</b></label><br>
-              <input  type="password"  name="pass" placeholder="Password......" formControlName="pass"/>
-              <div *ngIf=" submitted && f.cId.errors " >
-                <div *ngIf="f.cId.errors.required" ><p style="color: red">Enter password</p></div>
-              </div>
-              <br><br>
-            
-              <input id="submit" type="submit" value="Submit"/>
+                <label  for="pass"><b id="labels">Password</b></label><br>
+                <input  type="password"  name="pass" placeholder="Password......" formControlName="pass"/>
+                <div *ngIf="loginSubmit && loginPush.pass.errors" >
+                  <div *ngIf="loginPush.pass.errors.required" ><p style="color: red">Enter password</p></div>
+                </div>
+                <br><br>
+              
+                <input id="submit" type="submit" value="Submit"/>
 
-          </form>
+            </form>
 
       </div>
 
@@ -38,23 +38,38 @@
 
       <div *ngIf="disp1">
 
-          <form [formGroup]="signUp" (ngSubmit)="onSubmit(signUp.value)">
+          <form [formGroup]="signUp" (ngSubmit)="onSignUpSubmit(signUp.value)">
       
               <label  for="fname"><b id="labels">First Name</b></label><br>
-              <input  type="text"  name="fname" placeholder="First Name......" formControlName="fname"/><br><br>
+              <input  type="text"  name="fname" placeholder="First Name......" formControlName="fname"/>
+              <div *ngIf="signUpSubmit && signUpPush.fname.errors" >
+                <div *ngIf="signUpPush.fname.errors.required" ><p style="color: red">Enter First Name</p></div>
+              </div><br><br>
         
               <label  for="lname"><b id="labels">Last Name</b></label><br>
-              <input  type="text"  name="lname" placeholder="Last Name......" formControlName="lname"/><br><br>
+              <input  type="text"  name="lname" placeholder="Last Name......" formControlName="lname"/>
+              <div *ngIf="signUpSubmit && signUpPush.lname.errors" >
+                <div *ngIf="signUpPush.lname.errors.required" ><p style="color: red">Enter Last Name</p></div>
+              </div><br><br>
 
               <label  for="cno"><b id="labels">User ID</b></label><br>
-              <input  type="number"  name="cId" placeholder="Phone Number......" formControlName="cId"/><br><br>
+              <input  type="number"  name="cId" placeholder="Phone Number......" formControlName="cId"/>
+              <div *ngIf="signUpSubmit && signUpPush.cId.errors" >
+                <div *ngIf="signUpPush.cId.errors.required" ><p style="color: red">Enter Your Id</p></div>
+              </div><br><br>
 
               <label  for="pass"><b id="labels">Password</b></label><br>
-              <input  type="password"  name="pass" placeholder="Password......" formControlName="pass"/><br><br>
+              <input  type="password"  name="pass" placeholder="Password......" formControlName="pass"/>
+              <div *ngIf="signUpSubmit && signUpPush.pass.errors" >
+                <div *ngIf="signUpPush.pass.errors.required" ><p style="color: red">Enter Password</p></div>
+              </div><br><br>
 
               <label  for="cpass"><b id="labels">Confirm Password</b></label><br>
-              <input  type="password"  name="cpass" placeholder="Confirm Password......" formControlName="cpass"/><br><br>
-              <br>
+              <input  type="password"  name="cpass" placeholder="Confirm Password......" formControlName="cpass"/>
+              <div *ngIf="signUpSubmit && signUpPush.cpass.errors" >
+                <div *ngIf="signUpPush.cpass.errors.required" ><p style="color: red">Confirm Your Password</p></div>
+              </div>
+              <br><br><br>
 
               <input id="submit" type="submit" value="Submit"/>
 
