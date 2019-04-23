@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { FooterComponent } from './footer/footer.component';
-import { UsercontactComponent } from './usercontact/usercontact.component';
+import { UsercontactComponent } from './userhome/usercontact/usercontact.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { OrdersComponent } from './adminhome/orders/orders.component';
 import { ProfileComponent } from './adminhome/profile/profile.component';

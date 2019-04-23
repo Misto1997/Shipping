@@ -6,6 +6,9 @@
   
 
 }
+body{
+    background-color: tomato;
+}
 #home:hover, #contact:hover, #profile:hover,#myorder:hover{
     color: lightcoral
 }
