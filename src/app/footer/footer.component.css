@@ -7,7 +7,8 @@ footer{
 }
 #copyright{
     font-size:20px;
-    color: lightslategrey
+    color: lightslategrey;
+    text-align: center;
 }
 #f1{
     text-align: center;
