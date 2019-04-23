@@ -13,13 +13,14 @@ import { ProfileComponent } from './adminhome/profile/profile.component';
 
 const routes: Routes =
  [
-    { path : "login"  , component : LoginComponent},
+    { path : ""  , component : LoginComponent},
     { path : "adminHome" , component : AdminhomeComponent ,                   //, canActivate : [AuthenticateGuard] ,
       children : [
                     { path : "orders" ,  component : OrdersComponent} , 
                     { path : "logout" ,  component : LogoutComponent} , 
                     { path : "delUser" , component : DeleteUserComponent},
-                    { path : "profile" ,  component : ProfileComponent }
+                    { path : "profile" ,  component : ProfileComponent },
+                    { path : "addUser" ,  component : AddEmployeeComponent }
                  ]
     },
     { path : "userHome" , component : UserhomeComponent ,                   //, canActivate : [AuthenticateGuard] ,
