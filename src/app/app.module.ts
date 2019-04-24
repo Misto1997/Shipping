@@ -15,6 +15,9 @@ import { DeleteUserComponent } from './adminhome/delete-user/delete-user.compone
 import { LogoutComponent } from './adminhome/logout/logout.component';
 import { NgxBarcodeModule } from 'ngx-barcode';
 import { GenCodeComponent } from './adminhome/gen-code/gen-code.component';
+import { UserorderComponent } from './userhome/userorder/userorder.component';
+import { UserprofileComponent} from './userhome/userprofile/userprofile.component';
+import { UserhomepageComponent} from './userhome/userhomepage/userhomepage.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { GenCodeComponent } from './adminhome/gen-code/gen-code.component';
     DeleteUserComponent,
     LogoutComponent,
     GenCodeComponent,
-   
+    UserorderComponent,
+    UserhomepageComponent,
+    UserprofileComponent,
+    
     
   ],
   imports: [

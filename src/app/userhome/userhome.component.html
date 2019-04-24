@@ -14,20 +14,20 @@
       <a class="navbar-brand" id="logo" href="#">Cc</a>
     </div>
     <ul class="nav navbar-nav">
-      <li ><a href="#" id="home">Home</a></li>
+      <li ><a routerLink="userHomepage" id="home">Home</a></li>
      
-      <li><a href="#" id="myorder">My Order</a></li>
-      <li><a href="#" id="profile">My Profile</a></li>
-      <li><a href="#" id="contact">Contact Us</a></li>
+      <li><a routerLink="userOrder" id="myorder">My Order</a></li>
+      <li><a routerLink="userProfile" id="profile">My Profile</a></li>
+      <li><a routerLink="userContact" id="contact">Contact Us</a></li>
 
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
       
-      <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+      <li><a routerLink="logout" id="logout"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
     </ul>
   </div>
 </nav>
 
-
+<router-outlet></router-outlet>   
 <app-footer></app-footer>

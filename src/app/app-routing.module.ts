@@ -10,8 +10,9 @@ import { LogoutComponent } from './adminhome/logout/logout.component';
 import { OrdersComponent } from './adminhome/orders/orders.component';
 import { ProfileComponent } from './adminhome/profile/profile.component';
 import { GenCodeComponent } from './adminhome/gen-code/gen-code.component';
-
-
+import { UserorderComponent } from './userhome/userorder/userorder.component';
+import { UserprofileComponent} from './userhome/userprofile/userprofile.component';
+import { UserhomepageComponent} from './userhome/userhomepage/userhomepage.component';
 
 const routes: Routes =
  [
@@ -29,7 +30,10 @@ const routes: Routes =
     { path : "userHome" , component : UserhomeComponent ,                   //, canActivate : [AuthenticateGuard] ,
       children : [
                     { path : "userContact" ,  component :  UsercontactComponent } , 
-                    { path : "logout" ,  component : LogoutComponent} 
+                    { path : "logout" ,  component : LogoutComponent} ,
+                    { path : "userOrder" ,  component : UserorderComponent},
+                    { path : "userProfile" ,  component : UserprofileComponent},
+                    { path : "userHomepage" , component : UserhomepageComponent}
                  ]
     }
  ];

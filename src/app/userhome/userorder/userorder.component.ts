@@ -11,5 +11,8 @@ export class UserorderComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ order(phone)
+ {
+   alert(phone);
+ }
 }
