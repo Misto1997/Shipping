@@ -9,6 +9,8 @@ import { DeleteUserComponent } from './adminhome/delete-user/delete-user.compone
 import { LogoutComponent } from './adminhome/logout/logout.component';
 import { OrdersComponent } from './adminhome/orders/orders.component';
 import { ProfileComponent } from './adminhome/profile/profile.component';
+import { GenCodeComponent } from './adminhome/gen-code/gen-code.component';
+
 
 
 const routes: Routes =
@@ -20,7 +22,8 @@ const routes: Routes =
                     { path : "logout" ,  component : LogoutComponent} , 
                     { path : "delUser" , component : DeleteUserComponent},
                     { path : "profile" ,  component : ProfileComponent },
-                    { path : "addEmp" ,  component : AddEmployeeComponent }
+                    { path : "addEmp" ,  component : AddEmployeeComponent } ,
+                    { path : "genCode" ,  component : GenCodeComponent } 
                  ]
     },
     { path : "userHome" , component : UserhomeComponent ,                   //, canActivate : [AuthenticateGuard] ,

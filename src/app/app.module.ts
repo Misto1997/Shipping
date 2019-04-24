@@ -14,6 +14,7 @@ import { AddEmployeeComponent } from './adminhome/add-employee/add-employee.comp
 import { DeleteUserComponent } from './adminhome/delete-user/delete-user.component';
 import { LogoutComponent } from './adminhome/logout/logout.component';
 import { NgxBarcodeModule } from 'ngx-barcode';
+import { GenCodeComponent } from './adminhome/gen-code/gen-code.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { NgxBarcodeModule } from 'ngx-barcode';
     AddEmployeeComponent,
     DeleteUserComponent,
     LogoutComponent,
+    GenCodeComponent,
    
     
   ],
