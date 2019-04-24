@@ -20,7 +20,7 @@ const routes: Routes =
                     { path : "logout" ,  component : LogoutComponent} , 
                     { path : "delUser" , component : DeleteUserComponent},
                     { path : "profile" ,  component : ProfileComponent },
-                    { path : "addUser" ,  component : AddEmployeeComponent }
+                    { path : "addEmp" ,  component : AddEmployeeComponent }
                  ]
     },
     { path : "userHome" , component : UserhomeComponent ,                   //, canActivate : [AuthenticateGuard] ,
