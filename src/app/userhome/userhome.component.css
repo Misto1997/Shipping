@@ -1,10 +1,10 @@
-#home ,#contact, #profile,#myorder{
+#home ,#contact, #profile,#myorder,#myproduct{
    
       margin-left: 20px;
       font-size: 18px;
 }
 
-#home:hover, #contact:hover, #profile:hover,#myorder:hover{
+#home:hover, #contact:hover, #profile:hover,#myorder:hover,#myproduct:hover{
     color: lightcoral
 }
 

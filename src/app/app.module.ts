@@ -18,6 +18,7 @@ import { GenCodeComponent } from './adminhome/gen-code/gen-code.component';
 import { UserorderComponent } from './userhome/userorder/userorder.component';
 import { UserprofileComponent} from './userhome/userprofile/userprofile.component';
 import { UserhomepageComponent} from './userhome/userhomepage/userhomepage.component';
+import { OrderdetailsComponent } from './userhome/orderdetails/orderdetails.component';
 
 
 @NgModule({
@@ -37,8 +38,7 @@ import { UserhomepageComponent} from './userhome/userhomepage/userhomepage.compo
     UserorderComponent,
     UserhomepageComponent,
     UserprofileComponent,
-    
-    
+    OrderdetailsComponent
   ],
   imports: [
     BrowserModule,

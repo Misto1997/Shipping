@@ -13,6 +13,7 @@ import { GenCodeComponent } from './adminhome/gen-code/gen-code.component';
 import { UserorderComponent } from './userhome/userorder/userorder.component';
 import { UserprofileComponent} from './userhome/userprofile/userprofile.component';
 import { UserhomepageComponent} from './userhome/userhomepage/userhomepage.component';
+import { OrderdetailsComponent} from './userhome/orderdetails/orderdetails.component';
 
 const routes: Routes =
  [
@@ -33,7 +34,8 @@ const routes: Routes =
                     { path : "logout" ,  component : LogoutComponent} ,
                     { path : "userOrder" ,  component : UserorderComponent},
                     { path : "userProfile" ,  component : UserprofileComponent},
-                    { path : "userHomepage" , component : UserhomepageComponent}
+                    { path : "userHomepage" , component : UserhomepageComponent},
+                    { path : "orderDetail" , component : OrderdetailsComponent}
                  ]
     }
  ];
