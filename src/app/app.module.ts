@@ -13,7 +13,7 @@ import { ProfileComponent } from './adminhome/profile/profile.component';
 import { AddEmployeeComponent } from './adminhome/add-employee/add-employee.component';
 import { DeleteUserComponent } from './adminhome/delete-user/delete-user.component';
 import { LogoutComponent } from './adminhome/logout/logout.component';
-
+import { NgxBarcodeModule } from 'ngx-barcode';
 
 
 @NgModule({
@@ -37,6 +37,7 @@ import { LogoutComponent } from './adminhome/logout/logout.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxBarcodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
