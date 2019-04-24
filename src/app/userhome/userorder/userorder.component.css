@@ -1,0 +1,12 @@
+#a1{
+    width: 20%;
+    border-radius: 5px;
+    font-size: 19px;
+    border-color: black
+}
+#b1{
+    font-family: Courier New, Courier, monospace;
+    margin-left: 5px;
+    background-color: black;
+    color: white;
+}

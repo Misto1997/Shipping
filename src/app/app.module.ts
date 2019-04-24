@@ -13,6 +13,9 @@ import { ProfileComponent } from './adminhome/profile/profile.component';
 import { AddEmployeeComponent } from './adminhome/add-employee/add-employee.component';
 import { DeleteUserComponent } from './adminhome/delete-user/delete-user.component';
 import { LogoutComponent } from './adminhome/logout/logout.component';
+import { UserhomepageComponent } from './userhome/userhomepage/userhomepage.component';
+import { UserprofileComponent } from './userhome/userprofile/userprofile.component';
+import { UserorderComponent } from './userhome/userorder/userorder.component';
 
 
 
@@ -29,6 +32,9 @@ import { LogoutComponent } from './adminhome/logout/logout.component';
     AddEmployeeComponent,
     DeleteUserComponent,
     LogoutComponent,
+    UserhomepageComponent,
+    UserprofileComponent,
+    UserorderComponent,
    
     
   ],
