@@ -1,0 +1,71 @@
+#a1{
+    font-family: 'Leckerli One', cursive;
+    font-size: 60px;
+   
+    color: #3E4551
+}
+#a2{
+    font-family: 'Leckerli One', cursive;
+    font-size: 50px;
+     color: #3E4551
+     
+}
+#a3{
+    width: 90%;
+    border-radius: 5px;
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+#a4{
+     width: 45%;
+    border-radius: 5px;
+    font-size: 19px;
+    margin-bottom: 5px;
+
+    
+}
+ input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+  }
+  input[type="date"]:focus:before,
+  input[type="date"]:valid:before {
+    content: "";
+  }
+#b1{
+    font-family: Courier New, Courier, monospace;
+    margin-left: 5px;
+    background-color: black;
+    color: white;
+}
+#b1:hover{
+    background-color: tomato;
+    color:white;
+}
+
+.blinking{
+	animation:blinkingText 1s infinite;
+}
+@keyframes blinkingText{
+	0%{		color: #000;	}
+	49%{	color: transparent;	}
+	50%{	color: transparent;	}
+	99%{	color:transparent;	}
+	100%{	color: #000;	}
+}
+form{
+    
+   margin: 0 auto; 
+   margin-top: 8%;
+   padding-top: 16px;
+   padding-bottom: 19px;
+width:18%;
+text-align: center;
+border-radius: 8px;
+
+}
+
+
+
+

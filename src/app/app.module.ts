@@ -17,8 +17,8 @@ import { NgxBarcodeModule } from 'ngx-barcode';
 import { GenCodeComponent } from './adminhome/gen-code/gen-code.component';
 import { UserorderComponent } from './userhome/userorder/userorder.component';
 import { UserprofileComponent} from './userhome/userprofile/userprofile.component';
-import { UserhomepageComponent} from './userhome/userhomepage/userhomepage.component';
 import { OrderdetailsComponent } from './userhome/orderdetails/orderdetails.component';
+import { DefaultuserComponent } from './userhome/defaultuser/defaultuser.component';
 
 
 @NgModule({
@@ -36,9 +36,9 @@ import { OrderdetailsComponent } from './userhome/orderdetails/orderdetails.comp
     LogoutComponent,
     GenCodeComponent,
     UserorderComponent,
-    UserhomepageComponent,
     UserprofileComponent,
-    OrderdetailsComponent
+    OrderdetailsComponent,
+    DefaultuserComponent
   ],
   imports: [
     BrowserModule,
