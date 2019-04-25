@@ -28,10 +28,16 @@
                     <div *ngIf="loginSubmit && loginPush.pass.errors" >
                       <div *ngIf="loginPush.pass.errors.required" ><b style="color: red">Enter password</b></div>
                     </div><br><br>
-
-              
-
-                <a routerLink="adminHome" > <input id="submit" type="submit" value="Login"/></a>
+                    <div  style="border: solid 2px green;height: 50px;">
+                        <div *ngIf="captchaVal"><b style="color: white">{{seq}}</b></div>
+                        
+                        <input type="text" formControlName="captchaValue" id="captcha"/>
+                        <input type="button" value="verify"/>
+                        <div *ngIf="loginSubmit && loginPush.captchaValue.errors" >
+                            <div *ngIf="loginPush.captchaValue.errors.misMatch" ><b style="color: red">captcha mismatch</b></div>
+                        </div>
+                    </div>
+                  <input id="submit" type="submit" value="Login"/>
 
             </form>
 
