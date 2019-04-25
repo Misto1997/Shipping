@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,8 +20,14 @@ export class LoginComponent {
   disp:boolean=true;
   disp1:boolean=false;
   temp:boolean;
+
+  constructor(public router:Router) {
+
+   }
+  
   ngOnInit()
   {
+    
     if(this.captchaVal==true)
       this.call();
     this.login=new FormGroup({
@@ -36,11 +43,14 @@ export class LoginComponent {
     );
 
     this.signUp=new FormGroup({
-      fname:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z ]+')]),
-      lname:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z ]+')]),
+        name:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z ]+')]),
+      email:new FormControl('',[Validators.required,Validators.email]),
       cId:new FormControl('',[Validators.required,Validators.pattern('[6-9]{1}[0-9]{9}')]),
+      age:new FormControl('',[Validators.required]),
+      address:new FormControl('',[Validators.required]),
       pass:new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('[a-zA-Z]+[@_]{1}[0-9]+')]),
       cpass:new FormControl('',[Validators.required])
+     
       
     },
     { 
@@ -48,7 +58,7 @@ export class LoginComponent {
    }
     );
   }
-
+ 
   captchaCheck : ValidatorFn = (control: FormGroup): ValidationErrors | null => 
   {
     const captcha = control.get('captchaValue');
@@ -96,10 +106,6 @@ export class LoginComponent {
   }
  
 
-  
-
-  constructor() { }
-
   changeValue(val)
   {
     if(val==false)
@@ -119,12 +125,20 @@ export class LoginComponent {
 
   onLoginSubmit(login)
   {
-    //sdkjfhgdskjhfdskjhh sdjfhdskjfh kjsdhfkj hsdjkfhdsjk hskdjh es
       this.loginSubmit = true;
       if(this.captchaVal==true)
-      this.call();
+        this.call();
       if(this.login.invalid)   
         return; 
+      else
+      {
+        console.log(login.loginType);
+        if(login.loginType==="user")
+          this.router.navigateByUrl('userHome');
+        else
+          this.router.navigateByUrl('adminHome');
+
+      }
       console.log(login);
   }
   onSignUpSubmit(submit)
