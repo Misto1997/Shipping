@@ -20,6 +20,9 @@ import { UserprofileComponent} from './Components/userhome/userprofile/userprofi
 import { OrderdetailsComponent } from './Components/userhome/orderdetails/orderdetails.component';
 import { DefaultuserComponent } from './Components/userhome/defaultuser/defaultuser.component';
 import {HttpModule} from '@angular/http';
+import {LoginService} from './Services/login.service';
+
+
 
 @NgModule({
   declarations: [
@@ -38,17 +41,19 @@ import {HttpModule} from '@angular/http';
     UserorderComponent,
     UserprofileComponent,
     OrderdetailsComponent,
-    DefaultuserComponent,
-    HttpModule
+    DefaultuserComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxBarcodeModule
+    NgxBarcodeModule,
+    HttpModule
+    
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
