@@ -43,6 +43,19 @@ see documents in colleciton: 			db.CollectionName.find();
 
 see document with condition			db.CollectionName.find({name : "Vishal"});
 									^shows all the document with name Vishal
+									can put any condition
+
+see docs with multiple conditions		db.CollectionName.find({$or:[{name:"Vishal"},{name:"abc"}]});
+
+see docs with integer coditions			db.CollecitionName.find({age:{$gt:55}});													      ^ $gt: for greater than 
+										$lt : for less than
+
+search docs for  object 			db.CollectionName.find({"address.city":"Chandigarh"});
+									^ if we have object stored 
+
+search docs for array 				db.CollectionName.find({arrName:"valueToSearchFor"});
+
+
 
 formatting output:				db.CollectionName.find().pretty();
 
@@ -83,3 +96,23 @@ if want to delete only 1 document with the condition:
 	db.CollectionName.remove({name:"Vishal"}, {justOne: true});
 
 
+Sorting:
+
+	db.CollectionName.find().sort({name:1});
+				     ^  1 => Ascending
+					-1 => Descending
+
+Sorting with limit:
+ 	db.CollectionName.find().limit(4).sort({name:1});
+				 ^ shows only 4 values
+Counting:
+	db.customers.find().count();
+
+
+Counting with condition:
+
+	db.CollectionName.find({name:"Vishal"}).count();
+				
+Iterate using forEach
+
+	db.CollectionName.find().forEach(function(doc){print("Name"+ doc.name)});
