@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms';
 import {Router} from '@angular/router';
 import { LoginService } from 'src/app/Services/login.service';
+import { LoginUser } from 'src/app/Classes/user';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,6 +24,8 @@ export class LoginComponent {
   disp:boolean=true;
   disp1:boolean=false;
   temp:boolean;
+  luser: LoginUser={"mobileNo":0,"pass":"","type":""};
+
 
   constructor(public router:Router,private ob:LoginService) {}
   
@@ -57,6 +62,35 @@ export class LoginComponent {
    }
     );
   }
+
+
+
+  onLoginSubmit(login)
+  {
+      this.loginSubmit = true;
+      if(this.captchaVal==true)
+        this.call();
+      if(this.login.invalid)   
+        return; 
+      else
+      {
+       // if(login.loginType==="admin")
+         
+            this.luser = new LoginUser(login.cId,login.pass,login.loginType);
+
+            this.ob.getUser(this.luser)
+            .subscribe((response:Response)=>console.log(response.json()),
+                       (error)=>console.log("Record with this id doesnt exitst")
+                      )             
+            //this.router.navigateByUrl('userHome');
+         
+       // else
+         // this.router.navigateByUrl('adminHome');
+
+      }
+      //console.log(login);
+  }
+
  
   captchaCheck : ValidatorFn = (control: FormGroup): ValidationErrors | null => 
   {
@@ -122,27 +156,7 @@ export class LoginComponent {
 
   }
 
-  onLoginSubmit(login)
-  {
-      this.loginSubmit = true;
-      if(this.captchaVal==true)
-        this.call();
-      if(this.login.invalid)   
-        return; 
-      else
-      {
-        if(login.loginType==="user")
-         {
-            //this.ob.getUser(login)
-            //.subscribe((response:Response=>)
-            //this.router.navigateByUrl('userHome');
-         }
-        else
-          this.router.navigateByUrl('adminHome');
-
-      }
-      console.log(login);
-  }
+  
   onSignUpSubmit(submit)
   {
       this.signUpSubmit = true;

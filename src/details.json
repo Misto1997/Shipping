@@ -1,0 +1,50 @@
+{
+    "CustomerDetails": [
+      {
+        "mobileNo": 7777777777,
+        "name": "Vishal Singh Rawat",
+        "username": "VishalRT",
+        "age": 21,
+        "pass": "vishalsingh",
+        "accountNo": 12345678901,
+        "email": "vishal@gmail.com",
+        "address": "chandigarh"
+      },
+      {
+        "id": 2,
+        "name": "Rahul Rana",
+        "username": "RahulR",
+        "age": 23,
+        "password": "rahulrana",
+        "accountNo": 78451289562,
+        "mobileNo": 9465875422,
+        "email": "rahul@gmail.com",
+        "address": "bangaluru"
+      }
+    ],
+    "AccountDetails": [
+      {
+        "id": 1,
+        "accountNo": 12345678901,
+        "accountType": "Savings",
+        "balance": 6400
+      },
+      {
+        "id": 2,
+        "accountNo": 78451289562,
+        "accountType": "Savings",
+        "balance": 5600
+      }
+    ],
+    "CardDetails": [
+      {
+        "id": 1,
+        "name": "Vishal Singh Rawat",
+        "cardno": 654875423256,
+        "provideDate": "2015-11",
+        "validity": "2032-11",
+        "cvv": "311",
+        "type": "Debit"
+      }
+    ]
+  }
