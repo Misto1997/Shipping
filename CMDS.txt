@@ -8,3 +8,78 @@ npm install -g rxjs
 
 python:-
 pip install pymongo
+
+
+
+
+
+
+MongoDB:- 
+in bin folder 
+mongod -- directoryperdb --dbpath [PATH] --logpath [PATH] --logappend --rest --install
+
+---to start mongo shell go to bin and type mongo
+
+show dbs' :  show dbs
+create dbs's :  use [DBNAME]
+current db : db
+create user :
+		db.createUser
+		({
+			user:"Uname",
+			pwd:"123",
+			roles:["readWrite","dbAdmin"]
+		});
+
+see collections in the database :		show collections;
+
+create Collection:				db.createCollection('CollectionName');
+
+insertions: 					db.CollectionName.insert({name : "Vishal", age:"23"});
+
+multiple insertions : 				db.CollectionName.insert([{data1},{data2},{data3}]);
+
+see documents in colleciton: 			db.CollectionName.find();
+
+see document with condition			db.CollectionName.find({name : "Vishal"});
+									^shows all the document with name Vishal
+
+formatting output:				db.CollectionName.find().pretty();
+
+update: db.CollectionName.update({ name:"Vishal"}, { name : "Vishal" , age:"23" , gender : "male"} ); 
+				   ^ to find which 	^ new update on field, have to mention all the field 
+				    one to update	   as it will replace the current data in the db
+
+
+update without overwrite:
+		
+	db.CollectionName.update({ name:"Vishal"}, {$set :{gender:"male" } });
+						    ^ will add gender field rather than override
+
+
+increment int in db:
+
+	db.CollectionName.update({name :"Vishal"}, {$inc:{age:3}});
+						    ^ will increment age field with 3
+
+remove a field(column):
+
+	db.CollectionName.update({name:"Vishal"},{$unset:{age: 1} });
+
+add column in update if not found:
+	
+	db.CollectionName.update({name:"Vishal"},{name : "Vishal" , age:"23" , gender : "male"} ,{upsert:true});
+
+rename column name:
+	
+	db.CollectionName.update({name:"Vishal"},{ $rename:{"gender":"sex"} } );
+
+delete rows/remove documents:
+
+	db.CollectionName.remove({name:"Vishal"});
+
+if want to delete only 1 document with the condition:
+
+	db.CollectionName.remove({name:"Vishal"}, {justOne: true});
+
+
