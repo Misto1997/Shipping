@@ -14,7 +14,7 @@
                 <input  style="margin-left: 100px" type="radio" name="loginType" value="admin"  formControlName="loginType"> <b id="labels">Admin</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input  type="radio"  value="user" name="loginType" formControlName="loginType"> <b id="labels">User</b>
                     <div *ngIf="loginSubmit && loginPush.loginType.errors" >
-                      <div *ngIf="loginPush.loginType.errors.required" ><b style="color: red">*Select type</b></div>
+                      <div *ngIf="loginPush.loginType.errors.required" ><b style="color: red;">*Select type</b></div>
                     </div><br><br><br>
 
                 <label  for="cno"><b id="labels">User ID</b></label><br>
@@ -34,7 +34,7 @@
                         <div *ngIf="captchaVal"><b style="border:solid grey 1px ;color: white;float: left; background-color: grey; font-size: 40px">{{seq}}</b></div>                        
                         <input type="text" formControlName="captchaValue" id="captcha"/>
                         <div *ngIf="loginSubmit && loginPush.captchaValue.errors" >
-                            <div *ngIf="loginPush.captchaValue.errors.misMatch" ><b style="color: red">*captcha mismatch</b></div>
+                            <div *ngIf="loginPush.captchaValue.errors.misMatch" ><b style="color: red ;">*captcha mismatch</b></div>
                         </div>                       
                     </div>
                     <br>
