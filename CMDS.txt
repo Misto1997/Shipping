@@ -17,6 +17,8 @@ pip install pymongo
 MongoDB:- 
 in bin folder 
 mongod -- directoryperdb --dbpath [PATH] --logpath [PATH] --logappend --rest --install
+	=> mongod -directoryperdb --dbpath C:\Users\768998\Desktop\RT\BackEnd\ShippinhDB --logpath C:\Users		\768998\Desktop\RT\BackEnd\ShippingDB\Log\mongo.log -logappend  --rest --install
+
 
 ---to start mongo shell go to bin and type mongo
 
