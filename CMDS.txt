@@ -8,7 +8,9 @@ npm install -g rxjs
 
 python:-
 pip install pymongo
-
+pip install jsonify
+pip3 install Flask-jsonpify
+pip install responses
 
 
 
