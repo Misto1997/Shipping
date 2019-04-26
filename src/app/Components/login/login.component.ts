@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms';
 import {Router} from '@angular/router';
+import { LoginService } from 'src/app/Services/login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,9 +22,7 @@ export class LoginComponent {
   disp1:boolean=false;
   temp:boolean;
 
-  constructor(public router:Router) {
-
-   }
+  constructor(public router:Router,private ob:LoginService) {}
   
   ngOnInit()
   {
@@ -132,9 +131,12 @@ export class LoginComponent {
         return; 
       else
       {
-        console.log(login.loginType);
         if(login.loginType==="user")
-          this.router.navigateByUrl('userHome');
+         {
+            //this.ob.getUser(login)
+            //.subscribe((response:Response=>)
+            //this.router.navigateByUrl('userHome');
+         }
         else
           this.router.navigateByUrl('adminHome');
 

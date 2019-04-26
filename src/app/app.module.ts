@@ -19,7 +19,7 @@ import { UserorderComponent } from './Components/userhome/userorder/userorder.co
 import { UserprofileComponent} from './Components/userhome/userprofile/userprofile.component';
 import { OrderdetailsComponent } from './Components/userhome/orderdetails/orderdetails.component';
 import { DefaultuserComponent } from './Components/userhome/defaultuser/defaultuser.component';
-
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,8 @@ import { DefaultuserComponent } from './Components/userhome/defaultuser/defaultu
     UserorderComponent,
     UserprofileComponent,
     OrderdetailsComponent,
-    DefaultuserComponent
+    DefaultuserComponent,
+    HttpModule
   ],
   imports: [
     BrowserModule,
