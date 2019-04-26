@@ -23,7 +23,7 @@ const routes: Routes =
                     { path : "orders" ,  component : OrdersComponent} , 
                     { path : "logout" ,  component : LogoutComponent} , 
                     { path : "delUser" , component : DeleteUserComponent},
-                    { path : "profile" ,  component : ProfileComponent },
+                    { path : "" ,  component : ProfileComponent },
                     { path : "addEmp" ,  component : AddEmployeeComponent } ,
                     { path : "genCode" ,  component : GenCodeComponent } 
                  ]

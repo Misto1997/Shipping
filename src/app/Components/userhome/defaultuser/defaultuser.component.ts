@@ -12,4 +12,6 @@ export class DefaultuserComponent implements OnInit {
   ngOnInit() {
   }
    myDate = new Date();
+
+
 }
