@@ -1,7 +1,7 @@
 <fieldset>
   <legend>Add Employee</legend>
 
-  <form class="AddEmpForm"  [formGroup]="addEmpForm"  (ngSubmit)="onSubmit(addEmpForm.value)"   >
+  <form class="AddEmpForm"  [formGroup]="addEmpForm"  (ngSubmit)="onSubmit(addEmpForm.value)" >
     <table>
       <tr>
         <td>Employee ID :</td> <td> <input type="number" name="id"  formControlName="id" ></td>
@@ -68,7 +68,7 @@
               </div>
          </td>
       </tr>   
-      <tr>  
+      <tr>      
         <td>E-Mail :</td><td> <input type="text" name="email"  formControlName="email" ></td>
       </tr>
       <tr>

@@ -1,4 +1,10 @@
 
+angular:-
 npm install -g rxjs
-npm install @angular/common
-npm install @angular/core
+
+
+
+
+
+python:-
+pip install pymongo
