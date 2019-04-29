@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Services/login.service';
-import { LoginUser } from 'src/app/Classes/user';
+import { LoginUser , User } from 'src/app/Classes/user';
 import { ReactiveFormsModule  } from '@angular/forms';
 import { Response } from '@angular/http';
 
@@ -27,6 +27,7 @@ export class LoginComponent {
   disp1:boolean=false;
   temp:boolean;
   luser: LoginUser={"mobileNo":0,"pass":"","type":""};
+  suser: User={"name":"","emailId":"","mobileNo":0,"age":0,"address":"","pass":""};
   response : Response ;
 
   constructor(public router:Router,public ob:LoginService )
@@ -84,7 +85,7 @@ export class LoginComponent {
             this.ob.getUser(this.luser)
             .subscribe((response:Response)=>console.log(response.json()),
                        (error)=>console.log("Record with this id doesnt exitst")
-                      )             
+                      );             
             //this.router.navigateByUrl('userHome');
          
        // else
@@ -94,6 +95,62 @@ export class LoginComponent {
       //console.log(login);
   }
 
+  onSignUpSubmit(signUp)
+  {
+      this.signUpSubmit = true;
+
+      this.suser = new User(signUp.name , signUp.email , signUp.cId  , signUp.age , signUp.addresss , signUp.pass );
+      
+      //console.log(this.ob.postUser(this.suser));
+
+      this.ob.postUser(this.suser)
+            .subscribe((response:Response)=>console.log(response.json()),
+                       (error)=>console.log("Record with this id already exists")
+                      )           
+      if(this.signUp.invalid)   
+        return;
+      
+
+      //console.log(signUp);
+  }
+
+
+//Captcha Number Genereator
+ call()
+  {
+    
+       this.seq = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
+       console.log(this.seq);
+    
+  }
+
+//Form Switcher
+  changeValue(val)
+  {
+    if(val==false)
+      {
+        this.disp1=true;
+        this.disp=false;
+        this.signUpSubmit = false;
+      }
+    else
+      {
+        this.disp1=false;
+        this.disp=true;
+        this.loginSubmit = false;
+      }
+  }
+
+   get loginPush()
+  {
+       return this.login.controls; 
+  }
+  get signUpPush()
+  {
+       return this.signUp.controls; 
+  }
+
+//VALIDATORS ----------------------------------------------------------------------------------------------------------------------------------------------------  
  
   captchaCheck : ValidatorFn = (control: FormGroup): ValidationErrors | null => 
   {
@@ -124,50 +181,5 @@ export class LoginComponent {
           return  ;
       }  
   }
-  call()
-  {
-    
-       this.seq = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
-       console.log(this.seq);
-    
-  }
-
-  get loginPush()
-  {
-       return this.login.controls; 
-  }
-  get signUpPush()
-  {
-       return this.signUp.controls; 
-  }
- 
-
-  changeValue(val)
-  {
-    if(val==false)
-      {
-        this.disp1=true;
-        this.disp=false;
-        this.signUpSubmit = false;
-      }
-    else
-      {
-        this.disp1=false;
-        this.disp=true;
-        this.loginSubmit = false;
-      }
-
-  }
-
-  
-  onSignUpSubmit(submit)
-  {
-      this.signUpSubmit = true;
-      if(this.signUp.invalid)   
-        return;
-      console.log(submit);
-  }
-
    
-
 }

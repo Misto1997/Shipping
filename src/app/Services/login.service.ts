@@ -20,4 +20,16 @@ export class LoginService {
     
     return this.ob.get(this.url+"login/"+ user.type+"/"+user.mobileNo+"/"+user.pass).map((response:any)=>response)
   }
+
+   postUser(user : User ) : Observable<any>
+  {
+    
+    //return this.ob.post(this.url+"userSignUp/"+ user.type+"/"+user.mobileNo+"/"+user.pass).map((response:any)=>response);
+    console.log(user);
+    return this.ob.post(this.url+"userSignUp/",user).map((response:any)=>response);
+    
+  }
+
+  
+
 }
