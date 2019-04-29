@@ -4,7 +4,7 @@
   <form class="AddEmpForm"  [formGroup]="addEmpForm"  (ngSubmit)="onSubmit(addEmpForm.value)" >
     <table>
       <tr>
-        <td>Employee ID :</td> <td> <input type="number" name="id"  formControlName="id" ></td>
+        <td>Employee ID(MobileNo) :</td> <td> <input type="number" name="id"  formControlName="id" ></td>
       </tr>
       <tr>
           <td>
@@ -57,17 +57,7 @@
                 <div *ngIf="f.cpassword.errors.noMatch" >Password doesnt match</div>
               </div>
         </td>   
-      <tr> 
-        <td>Mobile No :</td><td> <input type="number" name="mobileNo"  formControlName="mobileNo" ></td>
-      </tr>
-      <tr>
-          <td>
-              <div *ngIf=" submitted && f.mobileNo.errors">
-                <div *ngIf="f.mobileNo.errors.required" >Please enter mobileNo </div>
-                <div *ngIf="f.mobileNo.errors.mobVal" >10 digits mob no </div>
-              </div>
-         </td>
-      </tr>   
+      
       <tr>      
         <td>E-Mail :</td><td> <input type="text" name="email"  formControlName="email" ></td>
       </tr>

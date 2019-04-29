@@ -2,12 +2,12 @@
 <span id="a1" >Welcome to<span> Ship Fast </span> Courier Services<br></span>
 <span id="a2">Top rated courier services in the town </span>
 <form>
-<input id="a3" type="text" value="{{myDate | date:'dd-MM-yyyy'}}" placeholder="Date" disabled>
-  <input id="a3" type="text" placeholder="Enter Product Name"  ><br>
-  <input id="a3" id="a3" type="number" placeholder="Enter Quantity"  ><br>
+<input id="a3" type="text" value="{{myDate | date:'dd-MM-yyyy'}}" placeholder="Date"  #date>
+  <input id="a3" type="text" placeholder="Enter Product Name" #name ><br>
+  <input id="a3" id="a3" type="number" placeholder="Enter Quantity" #quantity  ><br>
 
-<select id="a4" name="select1"  >
-<option value="">From</option>
+<select id="a4" name="select1" #from  >
+<option value=""  >From</option>
 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
 <option value="Andhra Pradesh">Andhra Pradesh</option>
 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -45,7 +45,7 @@
 <option value="West Bengal">West Bengal</option>
 </select>
 
-<select id="a4" >
+<select id="a4"  #to>
   <option value="">To</option>
 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -87,5 +87,5 @@
 
  
 
-  <button id="b1" class="btn btn-outline-primary"  type="button" (click)="order(phone.value)">Add Item</button>
+  <button id="b1" class="btn btn-outline-primary"  type="button" (click)="addItem(date.value,name.value,quantity.value,from.value,to.value)">Add Item</button>
 </form>
