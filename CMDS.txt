@@ -19,7 +19,7 @@ pip install responses
 MongoDB:- 
 in bin folder 
 mongod -- directoryperdb --dbpath [PATH] --logpath [PATH] --logappend --rest --install
-	=> mongod --directoryperdb --dbpath "C:\Users\768998\Desktop\RT\Backend\ShippingDB\data\db" --logpath "C:\Users\768998\Desktop\RT\Backend\ShippingDB\log\mongo.log" -logappend  --rest --install
+	=> mongod --directoryperdb --dbpath "C:\Users\768998\Desktop\RT\Backend\data\db" --logpath "C:\Users\768998\Desktop\RT\Backend\data\logs\mongo.log" --logappend  --rest --install
 
 
 ---to start mongo shell go to bin and type mongo
@@ -27,21 +27,30 @@ mongod -- directoryperdb --dbpath [PATH] --logpath [PATH] --logappend --rest --i
 show dbs' :  show dbs
 create dbs's :  use [DBNAME]
 current db : db
-create user :
+create user(controller of db) :
 		db.createUser
 		({
 			user:"Uname",
 			pwd:"123",
 			roles:["readWrite","dbAdmin"]
 		});
+		=> db.createUser({ user:"Group1", pwd:"123", roles["readWrite", "dbAdmin"] });
 
+			
 see collections in the database :		show collections;
+
+delete collections : 				b.<collection_name>.drop()
+
 
 create Collection:				db.createCollection('CollectionName');
 
 insertions: 					db.CollectionName.insert({name : "Vishal", age:"23"});
+		=>db.User.insert({mobileNo:1234567890 , name:"Vishal" , password:"123" , age:'21' , address: "Chandigarh" , email:"vishal@gmail.com"});
+
 
 multiple insertions : 				db.CollectionName.insert([{data1},{data2},{data3}]);
+		=>db.User.insert([{mobileNo:0987456321 , name:"Rahul" , password:"123" , age:'21' , address: "Banglore" , email:"rahul@gmail.com"},{name:"naveen", mobileNo:6457894521 , password:"123" , age:"21" , address:"Hyderabad" , email:"naveen@gmail.com"}]);
+
 
 see documents in colleciton: 			db.CollectionName.find();
 
