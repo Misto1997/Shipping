@@ -5,46 +5,60 @@
 <div class="mainContainer">
     <button id="c1" (click)="changeValue(true)">Login</button>
     <button id="c1" (click)="changeValue(false)">SignUp</button>
-   
+    
       <div *ngIf="disp">
-
+           
             <form [formGroup]="login" (ngSubmit)="onLoginSubmit(login.value)">
+                <table>
                 <br>
-                <label  for="type"><b style="font-size: 25px;margin-left: 200px">Login As</b></label><br><br>
-                <input  style="margin-left: 100px" type="radio" name="loginType" value="admin"  formControlName="loginType"> <b id="labels">Admin</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input  type="radio"  value="user" name="loginType" formControlName="loginType"> <b id="labels">User</b>
-                    <div *ngIf="loginSubmit && loginPush.loginType.errors" >
+                
+                <tr><label  for="type"><b style="font-size: 25px;margin-left: 200px">Login As</b></label><br><br></tr>
+                <tr>
+                <td><input style="margin-left: 20%" type="radio" name="loginType" value="admin"  formControlName="loginType"> <b id="labels">Admin</b> 
+                <input  style="margin-left: 30%" type="radio"  value="user" name="loginType" formControlName="loginType"> <b id="labels">User</b></td>
+                    <td><div *ngIf="loginSubmit && loginPush.loginType.errors" >
                       <div *ngIf="loginPush.loginType.errors.required" ><b style="color: red">*Select type</b></div>
-                    </div><br><br><br>
+                    </div></td><br><br><br>
+                </tr>
 
-                <label  for="cno"><b id="labels">User ID</b></label><br>
-                <input  type="number"  name="cId" placeholder="Registered Number......" formControlName="cId"/>
-                    <div *ngIf="loginSubmit && loginPush.cId.errors" >
+                <tr><label  for="cno"><b id="labels">User ID</b></label><br></tr>
+                <tr>
+                  <td><input   type="number"  name="cId" placeholder="Registered Number......" formControlName="cId"/></td>
+                   <td> <div *ngIf="loginSubmit && loginPush.cId.errors" >
                       <div *ngIf="loginPush.cId.errors.required" ><b style="color: red">*Enter Id</b> </div>
-                    </div><br><br><br>
+                    </div></td><br><br><br>
+                </tr>
 
-                <label  for="pass"><b id="labels">Password</b></label><br>
-                <input  type="password"  name="pass" placeholder="Password......" formControlName="pass"/>
-                    <div *ngIf="loginSubmit && loginPush.pass.errors" >
+                
+                <tr><label  for="pass"><b id="labels">Password</b></label><br></tr>
+                <tr>
+                <td><input  type="password"  name="pass" placeholder="Password......" formControlName="pass"/></td>
+                    <td><div *ngIf="loginSubmit && loginPush.pass.errors" >
                       <div *ngIf="loginPush.pass.errors.required" ><b style="color: red">*Enter password</b></div>
-                    </div><br><br><br>
+                    </div></td><br><br><br>
+                </tr>
 
+                
                     <div  style="height: 100px;">
-                       <label  for="type" id="labels"><b>Enter Captcha</b></label><br><br>
-                        <div *ngIf="captchaVal"><b style="border:solid grey 1px ;color: white;float: left; background-color: grey; font-size: 40px">{{seq}}</b></div>                        
-                        <input type="text" formControlName="captchaValue" id="captcha"/>
-                        <div *ngIf="loginSubmit && loginPush.captchaValue.errors" >
+                       <tr><label  for="type" id="labels"><b>Enter Captcha</b></label><br><br></tr>
+                       <tr>
+                        <td><div *ngIf="captchaVal"><b style="margin-left:100px;border:solid grey 1px ;color: white;float: left; background-color: grey; font-size: 40px">{{seq}}</b></div></td>                        
+                        <td><input type="text" formControlName="captchaValue" id="captcha"/></td>
+                        <td><div *ngIf="loginSubmit && loginPush.captchaValue.errors" >
                             <div *ngIf="loginPush.captchaValue.errors.misMatch" ><b style="color: red">*captcha mismatch</b></div>
-                        </div>                       
+                        </div>  
+                      </td>
+                      </tr>                     
                     </div>
                     <br>
 
 
                   <input id="submit" type="submit" value="Login"/>
-
+                </table>
             </form>
-
+          
       </div>
+   
 
 
 
@@ -52,81 +66,95 @@
 
           <form [formGroup]="signUp" (ngSubmit)="onSignUpSubmit(signUp.value)">
               <br>
-
-              <label  for="name"><b id="labels">First Name</b></label><br>
-              <input  type="text"  name="name" placeholder="Your Full Name......" formControlName="name"/>
-                  <div id="errors" *ngIf="signUpPush.name.errors" >
+              <table>
+              <tr><label  for="name"><b id="labels">First Name</b></label><br></tr>
+              <tr>
+              <td><input  type="text"  name="name" placeholder="Your Full Name......" formControlName="name"/></td>
+                  <td><div id="errors" *ngIf="signUpPush.name.errors" >
                     <div *ngIf="signUpPush.name.errors.pattern" ><b style="color: red">*Alphabet Only</b></div>
                   </div>
 
                   <div id="errors" *ngIf="signUpSubmit && signUpPush.name.errors" >
                     <div *ngIf="signUpPush.name.errors.required" ><b style="color: red">*Enter Full Name</b></div>
-                  </div><br><br><br>
+                  </div></td><br><br><br>
+                </tr>
               
-
-              <label  for="email"><b id="labels">Email id</b></label><br>
-              <input  type="text"  name="email" placeholder="Your email id......" formControlName="email"/>
-                  <div id="errors" *ngIf="signUpPush.email.errors" >
+              
+              <tr><label  for="email"><b id="labels">Email id</b></label><br></tr>
+              <tr>
+              <td><input  type="text"  name="email" placeholder="Your email id......" formControlName="email"/></td>
+                  <td><div id="errors" *ngIf="signUpPush.email.errors" >
                     <div *ngIf="signUpPush.email.errors.email" ><b style="color: red">*invalid email type</b></div>
-                  </div>
+                  </div> 
 
-                  <div id="errors" *ngIf="signUpSubmit && signUpPush.email.errors" >
+                   <div id="errors" *ngIf="signUpSubmit && signUpPush.email.errors" >
                     <div *ngIf="signUpPush.email.errors.required" ><b style="color: red">*Enter email id</b></div>
-                  </div><br><br><br>
+                  </div></td><br><br><br>
+                </tr>
 
               
-              <label  for="cno"><b id="labels">User ID</b></label><br>
-              <input  type="number"  name="cId" placeholder="Contact Number......" formControlName="cId"/>
-                  <div id="errors" *ngIf="signUpPush.cId.errors" >
+              <tr><label  for="cno"><b id="labels">User ID</b></label><br></tr>
+              <tr>
+              <td><input  type="number"  name="cId" placeholder="Contact Number......" formControlName="cId"/></td>
+                  <td><div id="errors" *ngIf="signUpPush.cId.errors" >
                     <div *ngIf="signUpPush.cId.errors.pattern" ><b style="color: red">*Invalid Contact Number</b></div>
-                  </div>
+                  </div> 
 
-                  <div id="errors" *ngIf="signUpSubmit && signUpPush.cId.errors" >
+                   <div id="errors" *ngIf="signUpSubmit && signUpPush.cId.errors" >
                     <div *ngIf="signUpPush.cId.errors.required" ><b style="color: red">*Enter Your Id</b></div>
-                  </div><br><br><br>
+                  </div></td><br><br><br>
+                </tr>
 
               
-              <label  for="age"><b id="labels">Age</b></label><br>
-              <input  type="number"  name="age" placeholder="Your age......" formControlName="age"/>
-                  <div id="errors" *ngIf="signUpSubmit && signUpPush.age.errors" >
+              <tr><label  for="age"><b id="labels">Age</b></label><br></tr>
+              <tr>
+                <td><input  type="number"  name="age" placeholder="Your age......" formControlName="age"/></td>
+                  <td><div id="errors" *ngIf="signUpSubmit && signUpPush.age.errors" >
                     <div *ngIf="signUpPush.age.errors.required" ><b style="color: red">*Enter Your age</b></div>
-                  </div><br><br><br>
+                  </div></td><br><br><br>
+                </tr>
 
               
-              <label  for="address"><b id="labels">Address</b></label><br>
-              <input  type="text"  name="address" placeholder="Your complete address......" formControlName="address"/>
-                  <div id="errors" *ngIf="signUpSubmit && signUpPush.address.errors" >
+              <tr><label  for="address"><b id="labels">Address</b></label><br></tr>
+              <tr>
+              <td><input  type="text"  name="address" placeholder="Your complete address......" formControlName="address"/></td>
+                  <td><div id="errors" *ngIf="signUpSubmit && signUpPush.address.errors" >
                     <div *ngIf="signUpPush.address.errors.required" ><b style="color: red">*Enter Your Address</b></div>
-                  </div><br><br><br>
+                  </div></td><br><br><br>
+                </tr>
 
               
-              <label  for="pass"><b id="labels">Password</b></label><br>
-              <input  type="password"  name="pass" placeholder="Password......" formControlName="pass"/>
-                  <div id="errors" *ngIf="signUpPush.pass.errors" >
-                    <div *ngIf="signUpPush.pass.errors.minlength" ><b style="color: red">*Password must be greater than 6 characters</b></div>
+              <tr><label  for="pass"><b id="labels">Password</b></label><br></tr>
+              <tr>
+              <td><input  type="password"  name="pass" placeholder="Password......" formControlName="pass"/></td>
+                  <td><div id="errors" *ngIf="signUpPush.pass.errors" >
+                    <div *ngIf="signUpPush.pass.errors.minlength" ><b style="color: red">*must be greater than 6 characters</b></div>
                   </div>
 
                   <div id="errors" *ngIf="signUpPush.pass.errors" >
-                    <div *ngIf="signUpPush.pass.errors.pattern" ><b style="color: red">*Password must be alphaNumeric with one special character(@ or _) eg.(User@123)</b></div>
+                    <div *ngIf="signUpPush.pass.errors.pattern" ><b style="color: red">*use alphanumeric and (@ or _) eg.(User@123)</b></div>
                   </div>
 
                   <div id="errors" *ngIf="signUpSubmit && signUpPush.pass.errors" >
                     <div *ngIf="signUpPush.pass.errors.required" ><b style="color: red">*Enter Password</b></div>
-                  </div><br><br><br>
+                  </div></td><br><br><br>
+                </tr>
 
               
-              <label  for="cpass"><b id="labels">Confirm Password</b></label><br>
-              <input  type="password"  name="cpass" placeholder="Confirm Password......" formControlName="cpass"/>
-                  <div id="errors" *ngIf="signUpSubmit && signUpPush.cpass.errors" >
+              <tr><label  for="cpass"><b id="labels">Confirm Password</b></label><br></tr>
+              <tr>
+              <td><input  type="password"  name="cpass" placeholder="Confirm Password......" formControlName="cpass"/></td>
+                  <td><div id="errors" *ngIf="signUpSubmit && signUpPush.cpass.errors" >
                     <div *ngIf="signUpPush.cpass.errors.required" ><b style="color: red">*Confirm Your Password</b></div>
                   </div>
                   <div id="errors" *ngIf="signUpSubmit && signUpPush.cpass.errors" >
                     <div *ngIf="signUpPush.cpass.errors.noMatch" ><b style="color: red">*Password Mismatch</b></div>
-                  </div><br><br><br>
+                  </div></td><br><br><br>
+                </tr>
 
 
               <input id="submit" type="submit" value="Submit"/>
-
+            </table>
           </form>
 
       </div>
