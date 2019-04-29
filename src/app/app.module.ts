@@ -19,9 +19,8 @@ import { UserorderComponent } from './Components/userhome/userorder/userorder.co
 import { UserprofileComponent} from './Components/userhome/userprofile/userprofile.component';
 import { OrderdetailsComponent } from './Components/userhome/orderdetails/orderdetails.component';
 import { DefaultuserComponent } from './Components/userhome/defaultuser/defaultuser.component';
-import {HttpModule} from '@angular/http';
 import {LoginService} from './Services/login.service';
-
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -50,7 +49,8 @@ import {LoginService} from './Services/login.service';
     ReactiveFormsModule,
     FormsModule,
     NgxBarcodeModule,
-    HttpModule
+    HttpModule ,
+    ReactiveFormsModule
     
   ],
   providers: [LoginService],

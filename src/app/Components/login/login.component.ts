@@ -3,7 +3,8 @@ import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, Validati
 import {Router} from '@angular/router';
 import { LoginService } from 'src/app/Services/login.service';
 import { LoginUser } from 'src/app/Classes/user';
-import
+import { ReactiveFormsModule  } from '@angular/forms';
+import { Response } from '@angular/http';
 
 
 @Component({
@@ -26,9 +27,9 @@ export class LoginComponent {
   disp1:boolean=false;
   temp:boolean;
   luser: LoginUser={"mobileNo":0,"pass":"","type":""};
+  response : Response ;
 
-
-  constructor(public router:Router,public ob:LoginService , public response : Resp )
+  constructor(public router:Router,public ob:LoginService )
   {}
   
   ngOnInit()
