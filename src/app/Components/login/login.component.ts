@@ -3,6 +3,7 @@ import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, Validati
 import {Router} from '@angular/router';
 import { LoginService } from 'src/app/Services/login.service';
 import { LoginUser } from 'src/app/Classes/user';
+import
 
 
 @Component({
@@ -27,7 +28,8 @@ export class LoginComponent {
   luser: LoginUser={"mobileNo":0,"pass":"","type":""};
 
 
-  constructor(public router:Router,private ob:LoginService) {}
+  constructor(public router:Router,public ob:LoginService , public response : Resp )
+  {}
   
   ngOnInit()
   {
