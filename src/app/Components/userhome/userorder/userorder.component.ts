@@ -6,20 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userorder.component.css']
 })
 export class UserorderComponent implements OnInit {
-flag=false
   constructor() { }
 
   ngOnInit() {
   }
- order(phone)
- {
-   
-   let a=12345
-   if(a==phone)
-   {
-     this.flag=true
-   }
-   else
-    this.flag=false
- }
+
+
+ myOrder()
+  {  
+    //code here
+  }
+
+
 }

@@ -1,32 +1,37 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
-<body>
-<div class="container">  
-  <form id="contact"  >
-  
-    <h3>Contact Us</h3>
-    <h4>Contact us for custom quote</h4>
-    <fieldset>
-      <input class="form-control"  placeholder="Your name" type="text" formControName="name">
 
-    </fieldset>
+<div class="container">  
+
+    <form id="contact" [formGroup]="contact" (ngSubmit)="contactUs(contact.value)" >
+  
+        <h3>Contact Us</h3>
+        <h4>Contact us for custom quote</h4>
+
+        <fieldset>
+            <input class="form-control"  placeholder="Your name" type="text" formControlName="name">
+        </fieldset>
     
+        <fieldset>
+          <input  placeholder="Your Email Address" type="email" tabindex="2" formControlName="email">
+        </fieldset>
+
+        <fieldset>
+          <input placeholder="Your Phone Number" type="number" tabindex="3" formControlName="pNumber">
+        </fieldset>
+
+        <fieldset>
+          <textarea placeholder="Type your message here...." tabindex="4" formControlName="msg"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <button name="submit" type="submit" id="contact-submit" >Submit</button>
+        </fieldset>
+
+        <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="CourierWala">CourierWala</a></p>
     
-    <fieldset>
-      <input  placeholder="Your Email Address" type="email" tabindex="2" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required>
-    </fieldset>
-    <fieldset>
-      <textarea placeholder="Type your message here...." tabindex="4" required></textarea>
-    </fieldset>
-    <fieldset>
-      <button name="submit" type="submit" id="contact-submit"   >Submit</button>
-    </fieldset>
-    <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="CourierWala">CourierWala</a></p>
+    </form>
     
-  </form>
 </div>
-</body>
+
 
 

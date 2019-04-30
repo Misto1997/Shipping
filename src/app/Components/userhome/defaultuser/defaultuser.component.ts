@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from 'src/app/Services/user.service';
 import { AddItem } from 'src/app/Classes/usertab';
+import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms';
 
 @Component({
   selector: 'defaultuser',
@@ -9,25 +10,37 @@ import { AddItem } from 'src/app/Classes/usertab';
   styleUrls: ['./defaultuser.component.css']
 })
 export class DefaultuserComponent implements OnInit {
-  additem: AddItem={"date":"","name":"","quantity":0,"from":"","to":""};
-  response : Response ;
-  
-  constructor( public ob:UserService) { }
 
+  additem: AddItem={"date":"","pName":"","quantity":0,"from":"","to":""};
+  response : Response ;
+  add;
+
+  constructor( public ob:UserService) { }
+  
   ngOnInit() {
 
-    
+    this.add=new FormGroup({
+      date:new FormControl('',[Validators.required]),
+      pName:new FormControl('',[Validators.required]),
+      quantity:new FormControl( '',[Validators.required]),
+      from:new FormControl('',[Validators.required]),
+      to:new FormControl('',[Validators.required])  } );
+
   }
-  addItem(date,name,quantity,from,to){
-   this.additem = new AddItem(date,name,quantity,from,to);
-      
-  //  this.ob.getUser(this.additem)
-  //  .subscribe((response:Response)=>console.log("working"),
-  //             (error)=>console.log("Record with this id doesnt exitst")
-  //             )   
-   
-    console.log(this.ob.getAddItem(this.additem));
-  }
+
+  addItem(add)
+    {
+        if(this.add.invalid)   
+          {
+              alert("All Fields Are Mandatory...");
+              return;
+          }  
+        else
+          {
+              this.additem = new AddItem(add.date,add.pName,add.quantity,add.from,add.to);
+              alert(this.ob.getAddItem(this.additem));
+          }
+    }
   
 
 
