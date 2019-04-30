@@ -5,14 +5,19 @@ export class AddItem
     quantity:number;
     from:string;
     to:string;
+    mobileNo : number ;
+    approval : string;
     
-    constructor(date,pName,quantity,from,to)
+    constructor(date,pName,quantity,from,to, mobileNo)
     {
         this.date=date;
         this.pName=pName;
         this.quantity=quantity;
         this.from=from;
         this.to=to;
+        this.mobileNo = mobileNo;
+        this.approval = "Pending"
+
     }
 }
 
