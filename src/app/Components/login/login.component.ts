@@ -83,14 +83,15 @@ export class LoginComponent {
             this.luser = new LoginUser(login.cId,login.pass,login.loginType);
 
             this.ob.getUser(this.luser)
-            .subscribe((response:Response)=>console.log(response.json()),
-                       (error)=>console.log("Record with this id doesnt exitst")
-                      );             
-            //this.router.navigateByUrl('userHome');
-         
-       // else
-         // this.router.navigateByUrl('adminHome');
+            .subscribe((response:Response)=>
+                                            {
+                                              if(response.json()["Status"]==="true")
+                                                this.router.navigateByUrl(login.loginType+'Home');
+                                              else
+                                                alert(response.json()["Status"]);
+                                            }
 
+                      );             
       }
       //console.log(login);
   }
