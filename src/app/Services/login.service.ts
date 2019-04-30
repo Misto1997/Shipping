@@ -21,9 +21,6 @@ export class LoginService {
     'Access-Control-Allow-Headers': 'Content-Type',
   }
   
-   requestOptions = {                                                                                                                                                                                 
-    headers: new Headers(this.headerDict), 
-  };
 
   constructor(private http:Http) { }
 
@@ -35,14 +32,9 @@ export class LoginService {
 
    postUser(user : User ) : Observable<any>
   {
-    
-    //return this.ob.get(this.url+"userSignUp/"+ user.type+"/"+user.mobileNo+"/"+user.pass).map((response:any)=>response);
 
-   // var jsonObj  = { "name":user.name , "emailId":user.emailId , "mobileNo":user.mobileNo , "age":user.age , "address":user.address , "pass":user.pass };
-    
-    //console.log(jsonObj);
     console.log(JSON.stringify(user));
-    return this.http.post(  this.url+"userSignUp/", JSON.stringify(user) , this.requestOptions ).map((response:any)=>response);
+    return this.http.post(  this.url+"userSignUp/user", JSON.stringify(user) , { headers : new Headers(this.headerDict) , } ).map((response:any)=>response);
     
   }
 
