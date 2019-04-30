@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl,FormGroup,Validators} from '@angular/forms';
+import { OrderDetailService } from 'src/app/Services/order-detail.service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'gen-code',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenCodeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public ob:OrderDetailService) { }
+ disp:boolean=false;
+ order;
   ngOnInit() {
+
+    this.order=new FormGroup({
+      orderId:new FormControl('',[Validators.required])    
+  })
+}
+
+  orderDetail(order)
+  {
+    if(this.order.invalid)   
+        {
+          alert("Enter Order Id..");
+          return; 
+        }
+      else
+      {
+        if(this.ob.orderDetail(order.orderId)==true)
+         {
+           this.disp=true;
+         }
+         else
+         {
+           this.disp=false;
+         }
+             
+      }
   }
 
 

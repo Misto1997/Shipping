@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/Services/admin.service';
+import {FormControl,FormGroup,Validators} from '@angular/forms';
 
 @Component({
   selector: 'delete-user',
@@ -8,28 +10,33 @@ import { Component, OnInit } from '@angular/core';
 export class DeleteUserComponent implements OnInit 
 {
 
-  display : boolean  ;
-  constructor() { }
+  delete;
+  constructor(public ob:AdminService) { }
 
   ngOnInit() 
   {
-    this.display = false ;
+    this.delete=new FormGroup({
+      cId:new FormControl('',[Validators.required])    
+  })
   }
 
-  deleteId(id)
+  deleteUser(deleteId)
   {
-     if(id>0)
-     {
-      console.log(id);
-      if(confirm("Are you sure ?"))
-        this.display = true;
+    if(this.delete.invalid)   
+        {
+          alert("Enter User Id..");
+          return; 
+        }
       else
       {
-        id = null ;
-        return ; 
-      }  
-     }
-     else
-      this.display =  false ;
+        if(this.ob.DeleteUser(deleteId.cId)==true)
+         {
+           alert("User deleted Successfully");
+         }
+         else
+         {
+          alert("User Not Found");
+         }
+      }
   }
 }

@@ -1,3 +1,26 @@
-<p>
-  orderdetails works!
-</p>
+<p style="font-size: 30px;color: black;text-align:center;font-weight: bold;">Order Details</p>
+<table>
+    
+    <tr>
+        <th>Customer ID</th>
+        <th>Order Id</th>
+        <th>Order Name</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Quantity</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>BarCode</th>         
+    </tr>
+    <tr>
+        <td>{{mobileNo}}</td>
+        <td>{{orderId}}</td>
+        <td>{{orderName}}</td>
+        <td>{{from}}</td>
+        <td>{{to}}</td>
+        <td>{{quantity}}</td>
+        <td>{{date}}</td>
+        <td>{{status}}</td>
+        <td><ngx-barcode [bc-value]=orderId [bc-display-value]="true"  [bc-format]="CODE128"  ></ngx-barcode></td>
+    </tr>
+</table>

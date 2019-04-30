@@ -15,4 +15,12 @@ export class AdminService {
     return "gfdgf";
 
   }
+
+  DeleteUser(deleteId)
+  {
+    if(deleteId==12345)
+     return true;
+    else
+     return false;
+  }
 }

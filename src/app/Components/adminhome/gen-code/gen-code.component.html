@@ -1,9 +1,15 @@
-<h1>Generate bar Code</h1>
+<h1>Enter Order Id to get perticular order detail...</h1>
+<br><br>
+<form [formGroup]="order" (ngSubmit)="orderDetail(order.value)">
 
-Input OrderID :  <input type="text"  #orderId >
+    <label  for="orderId"><b style="font-size: 20px;">Order Id:</b></label>
+    <input type="number" placeholder="Enter OrderId here.." formControlName="orderId" />
+    <input type="Submit" value="Get Details"/>
 
-<div  >
-<ngx-barcode [bc-value]="234" [bc-display-value]="true"  [bc-format]="CODE128"  ></ngx-barcode>
+</form>
+<br><br>
+<div *ngIf="disp">
+    <app-orderdetails></app-orderdetails>
 </div>
 
 
