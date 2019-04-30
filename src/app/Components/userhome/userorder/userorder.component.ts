@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'userorder',
@@ -6,16 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userorder.component.css']
 })
 export class UserorderComponent implements OnInit {
-  constructor() { }
+  status:boolean=true;
+
+  constructor(public ob:UserService) { 
+
+  }
+  
 
   ngOnInit() {
+    this.myOrder(); 
+  }
+  myOrder()
+  {
+    
   }
 
 
- myOrder()
-  {  
-    //code here
-  }
+ 
 
 
 }

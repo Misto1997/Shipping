@@ -1,27 +1,21 @@
-<span>
+<p style="font-size: 30px;text-align: center">My Orders</p>
+<hr>
 <table class="darkTable">
 <thead>
 <tr>
-<th>Product_id</th>
-<th>Name</th>
-<th>Size</th>
-<th>phone_no.</th>
-<th>Order Details</th>
+<th>S.no</th>
+<th>Order Id</th>
+<th>Order Name</th>
+<th>Quantity</th>
+<th>Approval</th>
+<th *ngIf="status">More Detail<th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>1</td><td>Name_1</td><td>10kg</td><td>7836738327</td><td><button class="btn btn-outline-primary" id="t1">Click Here</button></td></tr>
-<tr>
-<td>2</td><td>Name_2</td><td>25kg</td><td>7837532756</td><td><button class="btn btn-outline-primary" id="t1">Click Here</button></td></tr>
-<tr>
-<td>3</td><td>Name_3</td><td>12kg</td><td>9863653265</td><td><button class="btn btn-outline-primary" id="t1">Click Here</button></td></tr>
-<tr>
-<td>4</td><td>Name_4</td><td>11kg</td><td>8656532256</td><td><button class="btn btn-outline-primary" id="t1">Click Here</button></td></tr>
-<tr>
-<td>5</td><td>Name_5</td><td>15kg</td><td>7678886632</td><td><button class="btn btn-outline-primary" id="t1">Click Here</button></td></tr>
+<tr *ngFor="let detail of orderDetails">
+<td>{{detail.no}}</td><td>{{detail.orderId}}</td><td>{{detail.orderName}}</td><td>{{detail.quantity}}</td><td>{{detail.approval}}</td><td *ngIf="status"><button class="btn btn-outline-primary" id="t1">Click Here</button></td>
+</tr>
 </tbody>
 
 </table>
-   </span>
 
