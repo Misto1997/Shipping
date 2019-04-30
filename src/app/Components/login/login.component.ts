@@ -78,8 +78,7 @@ export class LoginComponent {
         return; 
       else
       {
-       // if(login.loginType==="admin")
-         
+    
             this.luser = new LoginUser(login.cId,login.pass,login.loginType);
 
             this.ob.getUser(this.luser)
@@ -93,26 +92,23 @@ export class LoginComponent {
 
                       );             
       }
-      //console.log(login);
+
   }
 
   onSignUpSubmit(signUp)
   {
       this.signUpSubmit = true;
-
-      this.suser = new User(signUp.name , signUp.email , signUp.cId  , signUp.age , signUp.addresss , signUp.pass );
-      
-      //console.log(this.ob.postUser(this.suser));
-
-      this.ob.postUser(this.suser)
-            .subscribe((response:Response)=>console.log(response.json()),
-                       (error)=>console.log("Record with this id already exists")
-                      )           
       if(this.signUp.invalid)   
         return;
-      
-
-      //console.log(signUp);
+      else
+      {
+        this.suser = new User(signUp.name , signUp.email , signUp.cId  , signUp.age , signUp.addresss , signUp.pass );
+        this.ob.postUser(this.suser)
+            .subscribe((response:Response)=>console.log(response.json()),
+                       (error)=>console.log("Record with this id already exists")
+                      )  
+      }         
+    
   }
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl , FormGroup ,Validators ,ValidatorFn , ValidationErrors , AbstractControl} from '@angular/forms';
+import { FormControl , FormGroup ,Validators ,ValidatorFn , ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddEmp } from 'src/app/Classes/admintab';
 import { AdminService } from 'src/app/Services/admin.service';
@@ -63,6 +63,8 @@ export class AddEmployeeComponent implements OnInit
                              }
                          );
 
+  
+
     
   }
 
@@ -70,8 +72,15 @@ export class AddEmployeeComponent implements OnInit
   
 
   onSubmit(add){
+    this.submitted =true;
+    if(this.addEmpForm.invalid)   
+      return; 
+    else
+      {
+
           this.addemp=new AddEmp(add.id,add.name,add.age,add.password,add.email,add.address)
           console.log(this.ob.getAddEmp(this.addemp));
+      }
   }
 
 //  VALIDATORS ---------------------------------------------------------------------------------------------------------------------------
