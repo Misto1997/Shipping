@@ -1,11 +1,11 @@
 <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
-<span id="a1" >Welcome to<span> Ship Fast </span> Courier Services<br></span>
+<span id="a1" >Welcome to<span id="logo" > Ship Fast </span> Courier Services<br></span>
 <span id="a2">Top rated courier services in the town </span>
 
 
 <form [formGroup]="add" (ngSubmit)="addItem(add.value)">
 
-      <input id="a3" type="text" value="{{myDate | date:'dd-MM-yyyy'}}" placeholder="Date"  formControlName="date">
+      <input id="a3" type="text" value="{{myDate | date:'MM-dd-yyyy'}}" placeholder="Date"  formControlName="date" >
       <input id="a3" type="text" placeholder="Enter Product Name" formControlName="pName" ><br>
       <input id="a3" id="a3" type="number" placeholder="Enter Quantity" formControlName="quantity" ><br>
 

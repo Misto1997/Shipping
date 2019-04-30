@@ -65,7 +65,12 @@ text-align: center;
 border-radius: 8px;
 
 }
-
+#logo{
+    font-family: 'Faster One', cursive,bold;
+    font-size: 60px;
+    color: tomato;
+    
+   }
 
 
 
