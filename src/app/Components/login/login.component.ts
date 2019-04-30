@@ -106,8 +106,12 @@ export class LoginComponent {
         this.ob.postUser(this.suser)
             .subscribe((response:Response)=>
                                             {
-                                              if(response.json()["Status"]==="true")
+                                              
+                                              if(response.json()["Status"]=== "true" )
+                                              { 
+                                                console.log(response.json()["Status"])
                                                 this.router.navigateByUrl("");
+                                              } 
                                               else
                                                 alert(response.json()["Status"]);
                                             }
