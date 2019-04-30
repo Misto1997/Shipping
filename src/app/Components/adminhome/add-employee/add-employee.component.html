@@ -1,88 +1,103 @@
-<fieldset>
-  <legend>Add Employee</legend>
-
-  <form class="AddEmpForm"  [formGroup]="addEmpForm"  (ngSubmit)="onSubmit(addEmpForm.value)" >
+<legend style="font-size: 35px;text-align: center">Enter Employee Details</legend>
+<div class="main">
+    <div class="child">
+  <form class="AddEmpForm"  [formGroup]="addEmpForm"  (ngSubmit)="onSubmit(addEmpForm.value)"  >
     <table>
       <tr>
         <td>Employee ID(MobileNo) :</td> <td> <input type="number" name="id"  formControlName="id" ></td>
       </tr>
+      
       <tr>
           <td>
             <div *ngIf=" submitted && f.id.errors " >
-              <div *ngIf="f.id.errors.required" >Please enter ID </div>
+              <div *ngIf="f.id.errors.required" id="err" >Please enter ID </div>
             </div>
           </td>
       </tr>
+      <br>
       <tr>        
         <td> Name :</td> <td> <input type="text" name="name"  formControlName="name" ></td>
       </tr>
+      
         <tr>
             <td>
               <div *ngIf=" submitted && f.name.errors">
-                <div *ngIf="f.name.errors.required" >Please enter Name </div>
-                <div *ngIf="f.name.errors.minlength" >minimum 6 letters </div>
-                <div *ngIf="f.name.errors.maxlength" >maximum 20 letters </div> 
+                <div *ngIf="f.name.errors.required" id="err">Please enter Name </div>
+                <div *ngIf="f.name.errors.minlength" id="err">minimum 6 letters </div>
+                <div *ngIf="f.name.errors.maxlength" id="err">maximum 20 letters </div> 
               </div>
             </td>
         </tr>
+        <br>
       <tr>  
         <td>Age :</td><td> <input type="number" name="age" formControlName="age" ></td>
       </tr>
+      
       <tr>
             <td>
               <div *ngIf=" submitted && f.age.errors">
-                <div *ngIf="f.age.errors.required" >Please enter age </div>
-                <div *ngIf="f.age.errors.ageVal" >age should be between 18 to 52 </div>
+                <div *ngIf="f.age.errors.required" id="err">Please enter age </div>
+                <div *ngIf="f.age.errors.ageVal" id="err">age should be between 18 to 52 </div>
               </div>
             </td>
       </tr>
+      <br>
       <tr>  
         <td> Password :</td><td> <input type="password" name="password" formControlName="password"  ></td>
       </tr>
+      
       <tr>
           <td>
               <div *ngIf=" submitted && f.password.errors">
-                <div *ngIf="f.password.errors.required" >Please enter password </div>
-                <div *ngIf="f.password.errors.minlength" >min 8 letters </div>
+                <div *ngIf="f.password.errors.required" id="err">Please enter password </div>
+                <div *ngIf="f.password.errors.minlength" id="err">min 8 letters </div>
               </div>
           </td>
       </tr>
+      <br>
       <tr>
         <td>Confirm Password :</td><td> <input  type="password" name="cpassword" formControlName="cpassword" ></td>
       </tr>
+      
+      <tr>
          <td>
               <div *ngIf=" submitted && f.cpassword.errors">
-                <div *ngIf="f.cpassword.errors.required" >Cant be empty </div>
-                <div *ngIf="f.cpassword.errors.minlength" >min 8 letters </div>
-                <div *ngIf="f.cpassword.errors.noMatch" >Password doesnt match</div>
+                <div *ngIf="f.cpassword.errors.required" id="err">Cant be empty </div>
+                <div *ngIf="f.cpassword.errors.minlength" id="err">min 8 letters </div>
+                <div *ngIf="f.cpassword.errors.noMatch" id="err">Password doesnt match</div>
               </div>
-        </td>   
-      
+        </td>  
+        <br> 
+      </tr>
       <tr>      
         <td>E-Mail :</td><td> <input type="text" name="email"  formControlName="email" ></td>
       </tr>
+      
       <tr>
           <td>
               <div *ngIf=" submitted && f.email.errors">
-                <div *ngIf="f.email.errors.required" >Please enter mailId</div>
-                <div *ngIf="f.email.errors.email" >Not a valid email</div>
+                <div *ngIf="f.email.errors.required" id="err">Please enter mailId</div>
+                <div *ngIf="f.email.errors.email" id="err">Not a valid email</div>
               </div>
          </td>
-      </tr>   
+      </tr>
+      <br>   
       <tr> 
         <td>Address :</td><td> <input type="text" name="address"  formControlName="address" ></td>
       </tr>
+      
       <tr>
           <td>
               <div *ngIf=" submitted && f.address.errors">
-                <div *ngIf="f.address.errors.required" >Cant Be empty</div>
+                <div *ngIf="f.address.errors.required" id="err">Cant Be empty</div>
               </div>
          </td>
       </tr>
+      <br><br>
       <tr>
-        <td><input type="submit" value="Add" ></td>
+        <td><input type="submit" value="Add Employee" style="width:100%; margin-left: 120px;" ></td>
       </tr>  
     </table>
   </form>
-
-</fieldset>
+  </div>
+</div>

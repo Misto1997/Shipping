@@ -1,6 +1,6 @@
-<h1>Enter Order Id to get perticular order detail...</h1>
+<h1 style="text-align: center;">Enter Order Id to get perticular order detail...</h1>
 <br><br>
-<form [formGroup]="order" (ngSubmit)="orderDetail(order.value)">
+<form [formGroup]="order" (ngSubmit)="orderDetail(order.value)" style="text-align: center;">
 
     <label  for="orderId"><b style="font-size: 20px;">Order Id:</b></label>
     <input type="number" placeholder="Enter OrderId here.." formControlName="orderId" />
