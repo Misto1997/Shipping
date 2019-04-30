@@ -17,6 +17,7 @@ export class AddEmployeeComponent implements OnInit
   submitted  : boolean =false;
   addemp: AddEmp={"mobile":0,"name":"","age":0,"pass":"","email":"","address":""};
   response : Response ;
+  
 
   constructor(public ob:AdminService) { }
 

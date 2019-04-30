@@ -4,6 +4,8 @@ import { UserService } from 'src/app/Services/user.service';
 import { AddItem } from 'src/app/Classes/usertab';
 import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms';
 
+import {formatDate} from '@angular/common';
+
 @Component({
   selector: 'defaultuser',
   templateUrl: './defaultuser.component.html',
@@ -14,13 +16,16 @@ export class DefaultuserComponent implements OnInit {
   additem: AddItem={"date":"","pName":"","quantity":0,"from":"","to":""};
   response : Response ;
   add;
+  myDate=formatDate(new Date(), 'MM/dd/yyyy','en');
 
-  constructor( public ob:UserService) { }
-  
+  constructor( public ob:UserService) { 
+    
+  }
+ 
   ngOnInit() {
 
     this.add=new FormGroup({
-      date:new FormControl('',[Validators.required]),
+      date:new FormControl({value: 'myDate' , disabled :true}),
       pName:new FormControl('',[Validators.required]),
       quantity:new FormControl( '',[Validators.required]),
       from:new FormControl('',[Validators.required]),
@@ -37,7 +42,7 @@ export class DefaultuserComponent implements OnInit {
           }  
         else
           {
-              this.additem = new AddItem(add.date,add.pName,add.quantity,add.from,add.to);
+              this.additem = new AddItem(this.myDate,add.pName,add.quantity,add.from,add.to);
               alert(this.ob.getAddItem(this.additem));
           }
     }
