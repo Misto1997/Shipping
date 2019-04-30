@@ -104,8 +104,13 @@ export class LoginComponent {
       {
         this.suser = new User(signUp.name , signUp.email , signUp.cId  , signUp.age , signUp.addresss , signUp.pass );
         this.ob.postUser(this.suser)
-            .subscribe((response:Response)=>console.log(response.json()),
-                       (error)=>console.log("Record with this id already exists")
+            .subscribe((response:Response)=>
+                                            {
+                                              if(response.json()["Status"]==="true")
+                                                this.router.navigateByUrl("");
+                                              else
+                                                alert(response.json()["Status"]);
+                                            }
                       )  
       }         
     
