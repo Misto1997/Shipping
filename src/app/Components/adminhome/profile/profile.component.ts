@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ReactiveFormsModule  } from '@angular/forms';
+import { Response } from '@angular/http';
+import { AdminService } from 'src/app/Services//admin.service';
 
 @Component({
   selector: 'profile',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router,public as:AdminService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.showDetails();
   }
 
+  showDetails()
+  {
+    const data = {"mobileNo" : 123};
+    this.as.getAdmin(data)
+            .subscribe((response:Response)=>
+                                            {
+                                              console.log(response.json());
+                                            }
+
+                      );    
+  }
 }

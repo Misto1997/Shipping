@@ -110,7 +110,7 @@ export class LoginComponent {
                                               if(response.json()["Status"]=== "true" )
                                               { 
                                                 console.log(response.json()["Status"])
-                                                this.router.navigateByUrl("");
+                                                this.router.navigateByUrl("/userHome");
                                               } 
                                               else
                                                 alert(response.json()["Status"]);
