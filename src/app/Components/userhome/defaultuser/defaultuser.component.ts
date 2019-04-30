@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 import { UserService } from 'src/app/Services/user.service';
 import { AddItem } from 'src/app/Classes/usertab';
 import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms';
@@ -13,7 +13,7 @@ import {formatDate} from '@angular/common';
 })
 export class DefaultuserComponent implements OnInit {
 
-  additem: AddItem={"date":"","pName":"","quantity":0,"from":"","to":""};
+  additem: AddItem={"date":"","pName":"","quantity":0,"from":"","to":"","mobileNo":0 ,"approval":""};
   response : Response ;
   add;
   myDate=formatDate(new Date(), 'MM/dd/yyyy','en');
@@ -42,7 +42,7 @@ export class DefaultuserComponent implements OnInit {
           }  
         else
           {
-              this.additem = new AddItem(this.myDate,add.pName,add.quantity,add.from,add.to);
+              this.additem = new AddItem(this.myDate,add.pName,add.quantity,add.from,add.to,1234567890);
               alert(this.ob.getAddItem(this.additem));
           }
     }
