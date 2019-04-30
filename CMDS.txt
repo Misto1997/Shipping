@@ -1,7 +1,7 @@
 
 angular:-
 npm install -g rxjs
-
+npm install json-stringify
 
 
 
