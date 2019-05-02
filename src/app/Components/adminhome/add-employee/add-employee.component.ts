@@ -28,11 +28,9 @@ export class AddEmployeeComponent implements OnInit
                           ({  
                               name : new FormControl("", Validators.compose([
                                                                                   Validators.required , 
-                                                                                  Validators.maxLength(20),
-                                                                                  Validators.minLength(6)
+                                                                                  
                                                                             ])
-                                                     ),
-                              id : new FormControl("", Validators.required),        
+                                                     ),     
 
                               password  : new FormControl("", Validators.compose([
                                                                                   Validators.required , 
@@ -47,8 +45,8 @@ export class AddEmployeeComponent implements OnInit
                             
                               mobileNo : new FormControl("",Validators.compose([
                                                                                   Validators.required,
-                                                                                  Validators.minLength(10),
-                                                                                  Validators.maxLength(13)
+                                                                                  Validators.minLength(5),
+                                                                                  Validators.maxLength(10)
                                                                                ])
                                                          ),
                               email : new FormControl("",Validators.compose([
@@ -59,7 +57,7 @@ export class AddEmployeeComponent implements OnInit
                               age : new FormControl("",Validators.required),  
                               address : new FormControl("",Validators.required)
                           }, { 
-                                validators : [ this.confirmPass , this.mobVal , this.ageVal]
+                                validators : [ this.confirmPass  , this.ageVal]
                              }
                          );
 
@@ -75,10 +73,12 @@ export class AddEmployeeComponent implements OnInit
   {
     this.submitted =true;
     if(this.addEmpForm.invalid)   
+     {
       return; 
+      
+     }
     else
       {
-          console.log(add);
           this.addemp=new Employee(add.id,add.name,add.age,add.password,add.email,add.address)
           console.log(this.ob.getAddEmp(this.addemp));
       }
@@ -92,18 +92,18 @@ export class AddEmployeeComponent implements OnInit
   }
 
 
-  mobVal: ValidatorFn = (control: FormGroup): ValidationErrors | null => 
-  {
-    const mobno = control.get('mobileNo');
+  // mobVal: ValidatorFn = (control: FormGroup): ValidationErrors | null => 
+  // {
+  //   const mobno = control.get('mobileNo');
 
-      if( mobno.value < 10000000000 && mobno.value > 999999999)
-         return  null ;
-      else
-      {
-          mobno.setErrors({ 'mobVal' : true});
-          return  ;
-      }  
-  }
+  //     if( mobno.value < 10000000000 && mobno.value > 999999999)
+  //        return  null ;
+  //     else
+  //     {
+  //         mobno.setErrors({ 'mobVal' : true});
+  //         return  ;
+  //     }  
+  // }
 
   ageVal: ValidatorFn = (control: FormGroup): ValidationErrors | null => 
   {

@@ -4,13 +4,13 @@
   <form  [formGroup]="addEmpForm"  (ngSubmit)="onSubmit(addEmpForm.value)"  >
     <table  class="main" >
       <tr >
-        <td >Employee ID(MobileNo) :</td> <td > <input type="number" name="id"  formControlName="id" ></td>
+        <td >Employee ID(MobileNo) :</td> <td > <input type="number" name="mobileNo"  formControlName="mobileNo" ></td>
       </tr>
       
       <tr>
           <td>
-            <div *ngIf=" submitted && f.id.errors " >
-              <div *ngIf="f.id.errors.required" id="err" >Please enter ID </div>
+            <div *ngIf=" submitted && f.mobileNo.errors " >
+              <div *ngIf="f.mobileNo.errors.required" id="err" >Please enter ID </div>
             </div>
           </td>
       </tr>
@@ -23,8 +23,6 @@
             <td>
               <div *ngIf=" submitted && f.name.errors">
                 <div *ngIf="f.name.errors.required" id="err"> Please enter Name  </div>
-                <div *ngIf="f.name.errors.minlength" id="err">minimum 6 letters </div>
-                <div *ngIf="f.name.errors.maxlength" id="err">maximum 20 letters </div> 
               </div>
             </td>
         </tr>
