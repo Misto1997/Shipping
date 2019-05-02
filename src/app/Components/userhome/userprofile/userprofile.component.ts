@@ -13,6 +13,9 @@ export class UserprofileComponent implements OnInit {
   ngOnInit() {
   }
 
+  emp=[
+    {name:"Rahul",mobileNo:8699330119,age:22,email:"rahulrana1997.rr@gmail.com",address:"ajfdsnsjdf nvs.,sdfjlksmdf"}
+  ]
   profile()
   {
     //code here
