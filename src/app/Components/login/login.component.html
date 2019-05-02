@@ -2,20 +2,21 @@
   <b style="font-size: 60px;color: yellow">Ship Fast</b><br>
   <b style="font-size: 18px;color: greenyellow">Fastest way to ship your item...</b>
 </div>
-<div class="mainContainer">
+
+<div>
     <button id="c1" (click)="changeValue(true)">Login</button>
-    <button id="c1" (click)="changeValue(false)">SignUp</button>
+    <button id="c2" (click)="changeValue(false)">SignUp</button>
     
       <div *ngIf="disp">
            
-            <form [formGroup]="login" (ngSubmit)="onLoginSubmit(login.value)">
-                <table>
+            <form  [formGroup]="login" (ngSubmit)="onLoginSubmit(login.value)">
+                <table id="f1">
                 <br>
                 
-                <tr><label  for="type"><b style="font-size: 25px;margin-left: 200px">Login As</b></label><br><br></tr>
+                <tr><label id="l1" for="type"><b style="font-size: 25px;margin-left: 200px">Login As</b></label><br><br></tr>
                 <tr>
-                <td><input style="margin-left: 20%" type="radio" name="loginType" value="admin"  formControlName="loginType"> <b id="labels">Admin</b> 
-                <input  style="margin-left: 30%" type="radio"  value="user" name="loginType" formControlName="loginType"> <b id="labels">User</b></td>
+                <td><input id="r1" type="radio" name="loginType" value="admin"  formControlName="loginType"> <b id="labels1">Admin</b> 
+                <input  id="r2" type="radio"  value="user" name="loginType" formControlName="loginType"> <b id="labels2">User</b></td>
                     <td><div *ngIf="loginSubmit && loginPush.loginType.errors" >
                       <div *ngIf="loginPush.loginType.errors.required" ><b style="color: red">*Select type</b></div>
                     </div></td><br><br><br>
@@ -40,10 +41,10 @@
 
                 
                     <div  style="height: 100px;">
-                       <tr><label  for="type" id="labels"><b>Enter Captcha</b></label><br><br></tr>
+                       <tr><label  for="type" id="l3"><b>Enter Captcha</b></label><br><br></tr>
                        <tr>
-                        <td><div *ngIf="captchaVal"><b style="margin-left:100px;border:solid grey 1px ;color: white;float: left; background-color: grey; font-size: 40px">{{seq}}</b></div></td>                        
-                        <td><input type="text" formControlName="captchaValue" id="captcha"/></td>
+                        <td><div *ngIf="captchaVal"><b id="c3" >{{seq}}</b></div></td>                        
+                        <td><input type="text" id="c4" formControlName="captchaValue" id="captcha"/></td>
                         <td><div *ngIf="loginSubmit && loginPush.captchaValue.errors" >
                             <div *ngIf="loginPush.captchaValue.errors.misMatch" ><b style="color: red">*captcha mismatch</b></div>
                         </div>  
@@ -66,8 +67,8 @@
 
           <form [formGroup]="signUp" (ngSubmit)="onSignUpSubmit(signUp.value)">
               <br>
-              <table>
-              <tr><label  for="name"><b id="labels">First Name</b></label><br></tr>
+              <table  id="f1">
+              <tr><label  for="name"><b id="labels">Full Name</b></label><br></tr>
               <tr>
               <td><input  type="text"  name="name" placeholder="Your Full Name......" formControlName="name"/></td>
                   <td><div id="errors" *ngIf="signUpPush.name.errors" >
@@ -160,5 +161,6 @@
       </div>
 
 </div>
+
 <app-footer></app-footer>
        
