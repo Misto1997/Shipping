@@ -1,19 +1,19 @@
 export class AddEmp
 {
-    mobile:number
+    mobileNo:number
     name:string;
     age:number;
-    pass:string;
+    password:string;
     email:string;
     address:string;
    
     
-    constructor(id,name,age,pass,email,address)
+    constructor(id,name,age,password,email,address)
     {
-        this.mobile=id;
+        this.mobileNo=id;
         this.name=name;
         this.age=age;
-        this.pass=pass;
+        this.password=password;
         this.email=email;
         this.address=address;
     }

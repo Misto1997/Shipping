@@ -15,7 +15,7 @@ export class AddEmployeeComponent implements OnInit
   addEmpForm : FormGroup;
   nameVal : string; 
   submitted  : boolean =false;
-  addemp: AddEmp={"mobile":0,"name":"","age":0,"pass":"","email":"","address":""};
+  addemp: AddEmp={"mobileNo":0,"name":"","age":0,"password":"","email":"","address":""};
   response : Response ;
   
 
