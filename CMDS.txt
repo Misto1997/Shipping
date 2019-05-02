@@ -2,7 +2,7 @@
 angular:-
 npm install -g rxjs
 npm install json-stringify
-
+npm install ngx-barcode
 
 
 
@@ -129,3 +129,7 @@ Counting with condition:
 Iterate using forEach
 
 	db.CollectionName.find().forEach(function(doc){print("Name"+ doc.name)});
+
+
+9465225635
+

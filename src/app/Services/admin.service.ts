@@ -18,16 +18,26 @@ export class AdminService {
     'Access-Control-Allow-Headers': 'Content-Type',
   }
 
+  //Admin Profile
   getAdmin(mobileNo) : Observable<any>
   {
     return this.http.post(this.url+"showDetails/admin" , JSON.stringify(mobileNo) , { headers : new Headers(this.headerDict) }).map((response:any)=>response);
   }
 
-  changeApproval(data ) : Observable<any>
+  //Change the approval state of order
+  changeApproval(data) : Observable<any>
   {
-    return this.http.post(this.url+"showDetails/admin" , JSON.stringify(data) , { headers : new Headers(this.headerDict) }).map((response:any)=>response)
+    //console.log(data);
+    return this.http.post(this.url+"approval/" , JSON.stringify(data) , { headers : new Headers(this.headerDict) }).map((response:any)=>response);
   }
 
+  //delete user 
+  removeUser(data) : Observable<any>
+  {
+   
+    return this.http.delete(this.url+"remove/user/"+data["deleteId"]).map((response:any)=>response.json())
+    
+  }
   getAddEmp(user : Employee ) : string
   {
     
@@ -36,13 +46,7 @@ export class AdminService {
 
   }
 
-  DeleteUser(deleteId)
-  {
-    if(deleteId==12345)
-     return true;
-    else
-     return false;
-  }
+  
 
 
 

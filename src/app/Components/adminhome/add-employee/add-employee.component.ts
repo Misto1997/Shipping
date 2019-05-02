@@ -71,13 +71,14 @@ export class AddEmployeeComponent implements OnInit
 
   
 
-  onSubmit(add){
+  onSubmit(add)
+  {
     this.submitted =true;
     if(this.addEmpForm.invalid)   
       return; 
     else
       {
-
+          console.log(add);
           this.addemp=new Employee(add.id,add.name,add.age,add.password,add.email,add.address)
           console.log(this.ob.getAddEmp(this.addemp));
       }

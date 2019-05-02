@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/Services/admin.service';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { Response } from '@angular/http';
+
 
 @Component({
   selector: 'delete-user',
@@ -11,16 +14,16 @@ export class DeleteUserComponent implements OnInit
 {
 
   delete;
-  constructor(public ob:AdminService) { }
+  constructor(public as :AdminService ,public router:Router) { }
 
   ngOnInit() 
   {
     this.delete=new FormGroup({
-      cId:new FormControl('',[Validators.required])    
+      deleteId:new FormControl('',[Validators.required])    
   })
   }
 
-  deleteUser(deleteId)
+  deleteUser(deletef)
   {
     if(this.delete.invalid)   
         {
@@ -29,14 +32,15 @@ export class DeleteUserComponent implements OnInit
         }
       else
       {
-        if(this.ob.DeleteUser(deleteId.cId)==true)
-         {
-           alert("User deleted Successfully");
-         }
-         else
-         {
-          alert("User Not Found");
-         }
+        console.log(deletef.deleteId);
+        const data = {"deleteId" : deletef.deleteId };
+        this.as.removeUser(data)
+            .subscribe((response:Response)=>
+                                            {
+                                             alert(response["Status"]) ;
+                                            }
+
+                      );    
       }
   }
 }

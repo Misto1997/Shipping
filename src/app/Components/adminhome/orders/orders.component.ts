@@ -15,28 +15,28 @@ export class OrdersComponent implements OnInit {
   constructor( public router:Router, public as:AdminService , private os : OrderDetailService)
   { }
 
-  orders : Order[];
+  orders : Order[] = [] ;
   ngOnInit() 
   {
     this.showOrders();
   }
 
 
-  changeStatus(approval : string )
+  changeStatus(approval : string  , order_id : string)
   {
     console.log(approval);
     if(confirm("Are you sure"))
     {
-      this.submitted = false ;
-      const data = {"order_id" : 123 , "approval": approval};
-      //console.log(data);
-      // this.as.changeApproval(data)
-      //        .subscribe((response:Response)=>
-      //                                        {
-      //                                          console.log(response.json());
-      //                                        }
+      const data = { "order_id" : order_id , "approval": approval };
 
-      //                  );   
+      this.as.changeApproval(data)
+             .subscribe((response:Response)=>
+                                             {
+                                               console.log(response.json()["Status"]);
+                                               this.showOrders();
+                                             }
+                                             
+                        );   
     }
     else
       return;
@@ -46,9 +46,17 @@ export class OrdersComponent implements OnInit {
   {
     this.os.getOrders()
             .subscribe((response:Response)=>
-                                            {
-                                              // this.orders = response.json();
-                                              console.log(response);
+                                            {                                      
+                                              for(var i=0 ; i< response["Tables"].length ; i++)
+                                              {
+                                                //response["Tables"][i]["mobileNo"] =parseInt(response["Tables"][i]["mobileNo"]);
+                                                //response["Tables"][i]["order_id"] =parseInt(response["Tables"][i]["order_id"]);
+                                                //response["Tables"][i]["quantity"] =parseInt(response["Tables"][i]["quantity"]);
+                                                //console.log( response["Tables"][i]); 
+                                                this.orders[i] = response["Tables"][i] ; 
+                                              }
+                                              //console.log(this.orders);
+                                              
                                             }
 
                       );    
