@@ -30,9 +30,10 @@ export class DefaultuserComponent implements OnInit {
       quantity:new FormControl( '',[Validators.required]),
       from:new FormControl('',[Validators.required]),
       to:new FormControl('',[Validators.required])  } );
+      
 
   }
-
+   
   addItem(add)
     {
         if(this.add.invalid)   
