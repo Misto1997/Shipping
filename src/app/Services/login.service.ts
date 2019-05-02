@@ -36,7 +36,6 @@ export class LoginService {
 
     //console.log(JSON.stringify(user));
     return this.http.post(  this.url+"signUp/user/", JSON.stringify(user) , { headers : new Headers(this.headerDict) , } ).map((response:any)=>response);
-    
   }
 
   

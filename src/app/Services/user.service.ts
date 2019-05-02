@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
+import { Headers ,Http} from '@angular/http';
 import {Response} from '@angular/http/src/static_response';
 import {Observable} from 'rxjs';
 import 'rxjs/rx';
 import { Order } from '../Classes/usertab';
 import {ContactUs} from '../Classes/usertab';
 import { Router } from '@angular/router';
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +18,18 @@ export class UserService {
 
   orderId=0;
   url:string="http://localhost:5000/";
+  headerDict = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  }
 
-  constructor(private ob:Http,public router:Router) { }
+  constructor(private http :Http , public router:Router) { }
 
-  getAddItem(user : Order ) : string
+    addOrder(order  : Order ) : Observable<any>
     {
-        // return this.ob.get(this.url+"login/userHome"+ user.date+"/"+user.name+"/"+user.quantity+ user.from+"/"+user.to).map((response:any)=>response)
-        console.log(user);
-        return "Item Added";
+        //console.log(order);
+        return this.http.post(this.url+"addOrder/" , JSON.stringify(order) , { headers : new Headers(this.headerDict) }).map((response:any)=>response);;
 
     }
 
@@ -33,9 +40,9 @@ export class UserService {
         return "Thanks for Reaching Us.. we will contact you soon..";
     }
 
-  profile()
+    getUser(mobileNo) : Observable<any>
     {
-        //code here
+      return this.http.post(this.url+"showDetails/user" , JSON.stringify(mobileNo) , { headers : new Headers(this.headerDict) }).map((response:any)=>response);
     }
 
   myOrder()

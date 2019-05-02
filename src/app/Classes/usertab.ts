@@ -11,7 +11,6 @@ export class Order
     
     constructor(date,pName,quantity,from,to, mobileNo)
     {
-        
         this.date=date;
         this.order_name=pName;
         this.quantity=quantity;
@@ -20,7 +19,6 @@ export class Order
         this.mobileNo = mobileNo;
         this.order_id=0;
         this.approval = "Pending"
-
     }
 }
 

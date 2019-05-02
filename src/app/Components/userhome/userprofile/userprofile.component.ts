@@ -1,24 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ReactiveFormsModule  } from '@angular/forms';
+import { Response } from '@angular/http';
+import { AdminService } from 'src/app/Services//admin.service';
+import { Employee } from 'src/app/Classes/admintab';
+import { User } from 'src/app/Classes/user';
 import { UserService } from 'src/app/Services/user.service';
+
 
 @Component({
   selector: 'userprofile',
   templateUrl: './userprofile.component.html',
   styleUrls: ['./userprofile.component.css']
 })
-export class UserprofileComponent implements OnInit {
+export class UserprofileComponent implements OnInit 
+{
+  user : User = { "mobileNo": 0,"name":"","age" : 0,"password":"","email":"","address":""};
 
-  constructor(public ob:UserService) { }
+  constructor(public router:Router , public us :UserService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.showDetails();
   }
 
-  emp=[
-    {name:"Rahul",mobileNo:8699330119,age:22,email:"rahulrana1997.rr@gmail.com",address:"ajfdsnsjdf nvs.,sdfjlksmdf"}
-  ]
-  profile()
+  showDetails()
   {
-    //code here
+    const data = {"mobileNo" : 9464552572};
+    this.us.getUser(data)
+            .subscribe((response:Response)=>
+                                            {
+                                              console.log(response.json());
+                                              this.user = response.json();
+                                            }
+
+                      );    
+
+   
   }
 
 

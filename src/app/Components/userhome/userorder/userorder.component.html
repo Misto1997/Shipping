@@ -12,8 +12,13 @@
 </tr>
 </thead>
 <tbody>
-<tr *ngFor="let detail of orderDetails">
-<td>{{detail.no}}</td><td>{{detail.orderId}}</td><td>{{detail.orderName}}</td><td>{{detail.quantity}}</td><td>{{detail.approval}}</td><td ><button (click)="orderDetail(detail.orderId)"  class="btn btn-outline-primary" id="t1">Click Here</button></td>
+<tr *ngFor="let detail of orders">
+<td></td>
+<td>{{detail.order_id}}</td>
+<td>{{detail.order_name}}</td>
+<td>{{detail.quantity}}</td>
+<td>{{detail.approval}}</td>
+<td ><button (click)="orderDetail(detail.order_id)"  class="btn btn-outline-primary" id="t1">Click Here</button></td>
 </tr>
 </tbody>
 </table>

@@ -26,7 +26,7 @@ export class LoginComponent {
   disp1:boolean=false;
   temp:boolean;
   luser: LoginUser={"mobileNo":0,"pass":"","type":""};
-  suser: User={"name":"","emailId":"","mobileNo":0,"age":0,"address":"","pass":""};
+  suser: User={"name":"","email":"","mobileNo":0,"age":0,"address":"","password":""};
   response : Response ;
 
   constructor(public router:Router,public ob:LoginService )
@@ -101,7 +101,8 @@ export class LoginComponent {
         return;
       else
       {
-        this.suser = new User(signUp.name , signUp.email , signUp.cId  , signUp.age , signUp.addresss , signUp.pass );
+        this.suser = new User(signUp.name , signUp.email , signUp.cId  , signUp.age , signUp.address , signUp.pass );
+        
         this.ob.postUser(this.suser)
             .subscribe((response:Response)=>
                                             {

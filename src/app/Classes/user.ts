@@ -14,20 +14,20 @@ export class LoginUser
 export class User
 {
     name:string;
-    emailId:string;
+    email:string;
     mobileNo:number;
     age:number;
     address:string;
-    pass:string;
+    password:string;
     
     constructor(name,emailId,mobileNo,age,address,pass)
     {
 
         this.name=name;
-        this.emailId=emailId;
+        this.email=emailId;
         this.mobileNo=mobileNo;
         this.age=age;
         this.address=address;
-        this.pass=pass;
+        this.password=pass;
     }
 }

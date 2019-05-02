@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserService } from 'src/app/Services/user.service';
 import { Order } from 'src/app/Classes/usertab';
-import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms';
+import { FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 
 import {formatDate} from '@angular/common';
+
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'defaultuser',
@@ -13,12 +14,12 @@ import {formatDate} from '@angular/common';
 })
 export class DefaultuserComponent implements OnInit {
 
-  additem: Order={"date":"","order_name":"","quantity":0,"from":"","to":"","mobileNo":0 ,"approval":"" , "order_id":0 };
+  order: Order = {"date":"","order_name":"","quantity":0,"from":"","to":"","mobileNo":0 ,"approval":"" , "order_id":0 };
   response : Response ;
-  add;
+  add: FormGroup;
   myDate=formatDate(new Date(), 'MM/dd/yyyy','en');
 
-  constructor( public ob:UserService) { 
+  constructor( public os :UserService) { 
     
   }
  
@@ -30,7 +31,6 @@ export class DefaultuserComponent implements OnInit {
       quantity:new FormControl( '',[Validators.required]),
       from:new FormControl('',[Validators.required]),
       to:new FormControl('',[Validators.required])  } );
-      
 
   }
    
@@ -43,8 +43,14 @@ export class DefaultuserComponent implements OnInit {
           }  
         else
           {
-              this.additem = new Order(this.myDate,add.pName,add.quantity,add.from,add.to,1234567890);
-              alert(this.ob.getAddItem(this.additem));
+              this.order  = new Order(this.myDate,add.pName,add.quantity,add.from,add.to,9464552572);
+              this.os.addOrder(this.order)
+                                          .subscribe((response:Response)=>
+                                            {
+                                              alert(response.json()["Status"]);
+                                            }
+
+                      );    
           }
     }
   

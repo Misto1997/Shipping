@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/Classes/usertab';
+import { Router } from '@angular/router';
+import { OrderDetailService } from 'src/app/Services/order-detail.service';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -8,26 +11,39 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class UserorderComponent implements OnInit {
 
-  constructor(public ob:UserService) { 
+  orders : Order[] = [] ;
+
+  constructor( public router:Router  , private os : OrderDetailService , private us : UserService) 
+  { 
 
   }
-  orderDetails=[
-    {no:1,orderId:123,orderName:"abc",quantity:5,approval:"accepted"},
-    {no:2,orderId:123445674567546,orderName:"abfgdc",quantity:2,approval:"rejected"},
-    {no:3,orderId:1235,orderName:"abdfgc",quantity:3,approval:"pending"},
-    {no:4,orderId:1236,orderName:"asdfbc",quantity:5,approval:"accepted"}
-  ]
+  ngOnInit() 
+  {
+    this.showOrders();
+  }
 
-  ngOnInit() {
-    this.myOrder(); 
-  }
-  myOrder()
+
+
+  showOrders()
   {
-    
+    this.os.getOrders()
+            .subscribe((response:Response)=>
+                                            {                                    ;
+                                              for(var i=0 ; i< response["Tables"].length ; i++)
+                                              {
+                                                this.orders[i] = response["Tables"][i] ; 
+                                              }
+                                              //console.log(this.orders);
+                                              
+                                            }
+
+                      );    
   }
-  orderDetail(orderId)
+
+
+  orderDetail(order_id)
   {
-    this.ob.getOrderDetail(orderId);
+    this.us.getOrderDetail(order_id);
   }
 
 
