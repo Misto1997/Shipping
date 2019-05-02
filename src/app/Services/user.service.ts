@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import 'rxjs/rx';
 import {AddItem} from '../Classes/usertab';
 import {ContactUs} from '../Classes/usertab';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,10 @@ import {ContactUs} from '../Classes/usertab';
 
 export class UserService {
 
+  orderId=0;
   url:string="http://localhost:5000/";
 
-  constructor(private ob:Http) { }
+  constructor(private ob:Http,public router:Router) { }
 
   getAddItem(user : AddItem) : string
     {
@@ -40,6 +42,14 @@ export class UserService {
     {
         //code here
     }
+
+  getOrderDetail(orderId)
+  {
+    this.orderId=orderId;
+    console.log(orderId);
+    this.router.navigateByUrl("userHome/orderDetail");
+    
+  }
   
   
 

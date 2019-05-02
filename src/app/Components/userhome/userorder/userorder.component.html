@@ -8,14 +8,12 @@
 <th>Order Name</th>
 <th>Quantity</th>
 <th>Approval</th>
-<th *ngIf="status">More Detail<th>
+<th>More Detail<th>
 </tr>
 </thead>
 <tbody>
 <tr *ngFor="let detail of orderDetails">
-<td>{{detail.no}}</td><td>{{detail.orderId}}</td><td>{{detail.orderName}}</td><td>{{detail.quantity}}</td><td>{{detail.approval}}</td><td *ngIf="status"><button class="btn btn-outline-primary" id="t1">Click Here</button></td>
+<td>{{detail.no}}</td><td>{{detail.orderId}}</td><td>{{detail.orderName}}</td><td>{{detail.quantity}}</td><td>{{detail.approval}}</td><td ><button (click)="orderDetail(detail.orderId)"  class="btn btn-outline-primary" id="t1">Click Here</button></td>
 </tr>
 </tbody>
-
 </table>
-
