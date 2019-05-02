@@ -18,7 +18,6 @@ export class LoginComponent {
 
   login;
   signUp;
-
   loginSubmit : boolean = false ;
   signUpSubmit : boolean = false ;
   captchaVal : boolean=true;

@@ -21,6 +21,9 @@ import { OrderdetailsComponent } from './Components/userhome/orderdetails/orderd
 import { DefaultuserComponent } from './Components/userhome/defaultuser/defaultuser.component';
 import {LoginService} from './Services/login.service';
 import { HttpModule } from '@angular/http';
+import { AdminService } from './Services/admin.service';
+import { OrderDetailService } from './Services/order-detail.service';
+import { UserService } from './Services/user.service';
 
 
 @NgModule({
@@ -53,7 +56,7 @@ import { HttpModule } from '@angular/http';
     ReactiveFormsModule
     
   ],
-  providers: [LoginService],
+  providers: [LoginService,AdminService,OrderDetailService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
