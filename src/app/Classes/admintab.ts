@@ -1,4 +1,4 @@
-export class AddEmp
+export class Employee
 {
     mobileNo:number
     name:string;

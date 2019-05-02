@@ -32,7 +32,7 @@ const routes: Routes =
       children : [
                     { path : "userContact" ,  component :  UsercontactComponent } , 
                     { path : "logout" ,  component : LogoutComponent} ,
-                    { path : "userOrder" ,  component : UserorderComponent},
+                    { path : "userOrder" ,  component : UserorderComponent},                  
                     { path : "userProfile" ,  component : UserprofileComponent},
                     { path : "" , component : DefaultuserComponent},
                     { path : "orderDetail" , component : OrderdetailsComponent}

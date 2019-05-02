@@ -1,7 +1,8 @@
-export class AddItem
+export class Order
 {
+    order_id : number;
     date:string
-    pName:string;
+    order_name : string;
     quantity:number;
     from:string;
     to:string;
@@ -10,12 +11,14 @@ export class AddItem
     
     constructor(date,pName,quantity,from,to, mobileNo)
     {
+        
         this.date=date;
-        this.pName=pName;
+        this.order_name=pName;
         this.quantity=quantity;
         this.from=from;
         this.to=to;
         this.mobileNo = mobileNo;
+        this.order_id=0;
         this.approval = "Pending"
 
     }

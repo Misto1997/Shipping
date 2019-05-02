@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl , FormGroup ,Validators ,ValidatorFn , ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AddEmp } from 'src/app/Classes/admintab';
+import { Employee } from 'src/app/Classes/admintab';
 import { AdminService } from 'src/app/Services/admin.service';
 
 
@@ -15,7 +15,7 @@ export class AddEmployeeComponent implements OnInit
   addEmpForm : FormGroup;
   nameVal : string; 
   submitted  : boolean =false;
-  addemp: AddEmp={"mobileNo":0,"name":"","age":0,"password":"","email":"","address":""};
+  addemp: Employee={"mobileNo":0,"name":"","age":0,"password":"","email":"","address":""};
   response : Response ;
   
 
@@ -78,7 +78,7 @@ export class AddEmployeeComponent implements OnInit
     else
       {
 
-          this.addemp=new AddEmp(add.id,add.name,add.age,add.password,add.email,add.address)
+          this.addemp=new Employee(add.id,add.name,add.age,add.password,add.email,add.address)
           console.log(this.ob.getAddEmp(this.addemp));
       }
   }

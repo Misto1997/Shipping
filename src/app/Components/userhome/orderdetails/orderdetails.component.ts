@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-orderdetails',
@@ -7,15 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderdetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ob:UserService) { }
   mobileNo=98676586575;
-  orderId=4634567645;
+  orderId=this.ob.orderId;
   orderName="rahul";
   from="chd";
   to="blore";
   quantity="2";
   date="22-33-5434";
-  status="approved";
+  approved="Accepted";
+
   ngOnInit() {
   }
 

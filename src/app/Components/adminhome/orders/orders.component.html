@@ -12,14 +12,22 @@
     <th>Details</th>
   </tr> 
   <tr>
-    <td>Xyz4512ABC</td>
+    <td>123456</td>
     <td>24/03/2012</td>
     <td>Kerala</td>
     <td>Delhi</td>
     <td>Vishal Rawat</td>
     <td>2553</td>
-    <td><input type="button" value="accept"><input type="button" value="decline"></td>
+    <td><div *ngIf="submitted" >
+          <input type="button" value="accept" (click)="changeStatus(accept.value , 123456)" #accept>
+          <input type="button" value="decline" (click)="changeStatus(decline.value, 123456 )" #decline>
+        </div>
+        <div *ngIf="!submitted" >
+          submitted
+        </div>
+    </td>
     <td><input type="button" value="Click"></td>
+
   </tr>
 </table>
 

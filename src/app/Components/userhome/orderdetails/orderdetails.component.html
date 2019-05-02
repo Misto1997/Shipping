@@ -9,7 +9,7 @@
         <th>To</th>
         <th>Quantity</th>
         <th>Date</th>
-        <th>Status</th>
+        <th>Approved</th>
         <th>BarCode</th>         
     </tr>
     <tr>
@@ -20,7 +20,12 @@
         <td>{{to}}</td>
         <td>{{quantity}}</td>
         <td>{{date}}</td>
-        <td>{{status}}</td>
-        <td><ngx-barcode [bc-value]=orderId [bc-display-value]="true"  [bc-format]="CODE128"  ></ngx-barcode></td>
+        <td >{{approved}}</td>
+        <td >
+            <div *ngIf="approved=='Accepted'">
+            <ngx-barcode [bc-value]=orderId [bc-display-value]="true"  [bc-format]="CODE128"></ngx-barcode>
+            <ng-template #elseBlock></ng-template>
+            </div>
+        </td>
     </tr>
 </table>
