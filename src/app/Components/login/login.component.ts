@@ -167,7 +167,6 @@ export class LoginComponent {
          }
       else
       {
-        console.log("error");
         captcha.setErrors({ 'misMatch' : true});
           return  ;
       }  
