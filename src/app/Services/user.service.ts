@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 import {Response} from '@angular/http/src/static_response';
 import {Observable} from 'rxjs';
 import 'rxjs/rx';
-import {AddItem} from '../Classes/usertab';
+import { Order } from '../Classes/usertab';
 import {ContactUs} from '../Classes/usertab';
 import { Router } from '@angular/router';
 
@@ -18,7 +18,7 @@ export class UserService {
 
   constructor(private ob:Http,public router:Router) { }
 
-  getAddItem(user : AddItem) : string
+  getAddItem(user : Order ) : string
     {
         // return this.ob.get(this.url+"login/userHome"+ user.date+"/"+user.name+"/"+user.quantity+ user.from+"/"+user.to).map((response:any)=>response)
         console.log(user);
