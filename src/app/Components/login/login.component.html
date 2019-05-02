@@ -4,12 +4,13 @@
 </div>
 
 <div style="text-align: center"> 
-    <button id="c1" (click)="changeValue(true)">Login</button>
-    <button id="c2" (click)="changeValue(false)">SignUp</button>
+    <button id="c1" (click)="changeValue(true)">LOGIN</button>
+    <button id="c2" (click)="changeValue(false)">SIGN UP</button>
     
       <div *ngIf="disp">
            
             <form  [formGroup]="login" (ngSubmit)="onLoginSubmit(login.value)">
+                <br>
                 <table id="f1">
                 <br>
                 
