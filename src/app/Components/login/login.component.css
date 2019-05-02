@@ -72,11 +72,13 @@ input[type='radio']
     font-size: 15px;
     font-weight: bold;
     padding: 12px 18px;
-    margin-left: 36.5%;
+     
     border: none;
     cursor: pointer;
     width: 250px;
     border-radius: 4px;
+   
+    
 }
 #c1:hover
 {
@@ -88,12 +90,14 @@ input[type='radio']
     font-size: 15px;
     font-weight: bold;
     padding: 12px 18px;
-    margin-left: 10px;
+    
     border: none;
     cursor: pointer;
     width: 250px;
     border-radius: 4px;
+   
 }
+
 #c2:hover{
     background-color:lightseagreen;
 }
@@ -112,12 +116,7 @@ input[type='radio']
     font-size: 20px;
      
 }
-#captcha
-{
-    width: 100px;
-    height: 40px;
-    margin-left: 100px;
-}
+
 #f1{
     background-color: #ffffff;
     border: 1px solid black;
@@ -133,18 +132,27 @@ input[type='radio']
 #l1{
     margin-right: 200px;
 }
-#l3{
-    font-size: 20px;
-    margin-left: 120px;
-}
 #c3{
    
-   border:solid grey 1px ;
-   color: white;float: left; 
+   border:solid black 1px ;
+   color: white; 
    background-color: grey; 
    font-size: 40px;
-   margin-left: 120px;
-
+   padding: 0px 15px 0px 15px;
+   float: left;
+}
+#captcha
+{
+    width: 100px;
+    height: 50px;
+    float: right;
+    
+}
+#captchaDiv
+{
+    
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 

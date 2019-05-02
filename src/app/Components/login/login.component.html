@@ -3,7 +3,7 @@
   <b style="font-size: 18px;color: greenyellow">Fastest way to ship your item...</b>
 </div>
 
-<div>
+<div style="text-align: center"> 
     <button id="c1" (click)="changeValue(true)">Login</button>
     <button id="c2" (click)="changeValue(false)">SignUp</button>
     
@@ -40,17 +40,17 @@
                 </tr>
 
                 
-                    <div  style="height: 100px;">
-                       <tr><label  for="type" id="l3"><b>Enter Captcha</b></label><br><br></tr>
+                     
+                       <tr><label  for="type" id="labels"><b>Enter Captcha</b></label><br><br></tr>
                        <tr>
-                        <td><div *ngIf="captchaVal"><b id="c3" >{{seq}}</b></div></td>                        
-                        <td><input type="text" id="c4" formControlName="captchaValue" id="captcha"/></td>
+                        <td><div id="captchaDiv" *ngIf="captchaVal"><b id="c3" >{{seq}}</b> <input type="text" formControlName="captchaValue" id="captcha"/></div></td>                        
+                         
                         <td><div *ngIf="loginSubmit && loginPush.captchaValue.errors" >
                             <div *ngIf="loginPush.captchaValue.errors.misMatch" ><b style="color: red">*captcha mismatch</b></div>
                         </div>  
                       </td>
                       </tr>                     
-                    </div>
+                     
                     <br>
 
 
