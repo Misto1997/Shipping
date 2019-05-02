@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AddEmp } from '../Classes/admintab';
+import { Employee } from '../Classes/admintab';
 import { Headers ,  Http} from '@angular/http';
 import {Observable} from 'rxjs';
 
@@ -20,10 +20,15 @@ export class AdminService {
 
   getAdmin(mobileNo) : Observable<any>
   {
-    return this.http.post(this.url+"showDetails/admin" , JSON.stringify(mobileNo) , { headers : new Headers(this.headerDict) }).map((response:any)=>response)
+    return this.http.post(this.url+"showDetails/admin" , JSON.stringify(mobileNo) , { headers : new Headers(this.headerDict) }).map((response:any)=>response);
   }
 
-  getAddEmp(user : AddEmp) : string
+  changeApproval(data ) : Observable<any>
+  {
+    return this.http.post(this.url+"showDetails/admin" , JSON.stringify(data) , { headers : new Headers(this.headerDict) }).map((response:any)=>response)
+  }
+
+  getAddEmp(user : Employee ) : string
   {
     
     console.log(user);
@@ -38,4 +43,7 @@ export class AdminService {
     else
      return false;
   }
+
+
+
 }
