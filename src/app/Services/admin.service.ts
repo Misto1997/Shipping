@@ -27,7 +27,6 @@ export class AdminService {
   //Change the approval state of order
   changeApproval(data) : Observable<any>
   {
-    //console.log(data);
     return this.http.post(this.url+"approval/" , JSON.stringify(data) , { headers : new Headers(this.headerDict) }).map((response:any)=>response);
   }
 
@@ -38,12 +37,13 @@ export class AdminService {
     return this.http.delete(this.url+"remove/user/"+data["deleteId"]).map((response:any)=>response.json())
     
   }
-  getAddEmp(user : Employee ) : string
-  {
-    
-    console.log(user);
-    return "gfdgf";
 
+
+  //add Admin
+  postEmp(emp : Employee ) : Observable<any>
+  {
+    //console.log(emp);
+    return this.http.post(  this.url+"signUp/admin/", JSON.stringify(emp) , { headers : new Headers(this.headerDict) , } ).map((response:any)=>response);
   }
 
   

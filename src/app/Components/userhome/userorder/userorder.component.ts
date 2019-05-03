@@ -43,7 +43,7 @@ export class UserorderComponent implements OnInit {
 
   orderDetail(order_id)
   {
-    this.us.getOrderDetail(order_id);
+   // this.us.getOrderDetail(order_id);
   }
 
 

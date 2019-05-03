@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 
 export class UserService {
 
-  orderId=0;
+  private currentOrder : Order ;
   url:string="http://localhost:5000/";
   headerDict = {
     'Content-Type': 'application/json',
@@ -26,6 +26,7 @@ export class UserService {
 
   constructor(private http :Http , public router:Router) { }
 
+    //add a new order
     addOrder(order  : Order ) : Observable<any>
     {
         //console.log(order);
@@ -33,29 +34,28 @@ export class UserService {
 
     }
 
-
-  contactUs(contact:ContactUs):string
-    {
-        console.log(contact);
-        return "Thanks for Reaching Us.. we will contact you soon..";
-    }
-
+    //to show User profile
     getUser(mobileNo) : Observable<any>
     {
       return this.http.post(this.url+"showDetails/user" , JSON.stringify(mobileNo) , { headers : new Headers(this.headerDict) }).map((response:any)=>response);
     }
 
-  myOrder()
+    contactUs(contact:ContactUs):string
     {
-        //code here
+        console.log(contact);
+        return "Thanks for Reaching Us.. we will contact you soon..";
     }
 
-  getOrderDetail(orderId)
+// getter and setter for OrderDetails page
+  setOrderDetail(currentOrder : Order )
   {
-    this.orderId=orderId;
-    console.log(orderId);
-    this.router.navigateByUrl("userHome/orderDetail");
-    
+     //console.log(currentOrder);
+     this.currentOrder = currentOrder;
+  }
+
+  getOrderDetail() : Order
+  {
+    return this.currentOrder ;
   }
   
   

@@ -19,7 +19,7 @@ export class AddEmployeeComponent implements OnInit
   response : Response ;
   
 
-  constructor(public ob:AdminService) { }
+  constructor(public router :Router, public as:AdminService) { }
 
   ngOnInit() 
   {
@@ -79,8 +79,22 @@ export class AddEmployeeComponent implements OnInit
      }
     else
       {
-          this.addemp=new Employee(add.id,add.name,add.age,add.password,add.email,add.address)
-          console.log(this.ob.getAddEmp(this.addemp));
+          this.addemp=new Employee(add.mobileNo,add.name,add.age,add.password,add.email,add.address)
+          // console.log(this.ob.getAddEmp(this.addemp));
+          this.as.postEmp(this.addemp)
+            .subscribe((response:Response)=>
+                                            {
+                                              
+                                              if(response.json()["Status"]=== "true" )
+                                              { 
+                                                console.log(response);
+                                                //console.log(response.json()["Status"])
+                                                //this.router.navigateByUrl("/userHome");
+                                              } 
+                                              else
+                                                alert(response.json()["Status"]);
+                                            }
+                      )  
       }
   }
 

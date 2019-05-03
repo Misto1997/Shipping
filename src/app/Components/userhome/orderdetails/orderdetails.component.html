@@ -13,17 +13,17 @@
         <th>BarCode</th>         
     </tr>
     <tr>
-        <td>{{mobileNo}}</td>
-        <td>{{orderId}}</td>
-        <td>{{orderName}}</td>
-        <td>{{from}}</td>
-        <td>{{to}}</td>
-        <td>{{quantity}}</td>
-        <td>{{date}}</td>
-        <td >{{approved}}</td>
+        <td>{{ currentOrder.mobileNo }}</td>
+        <td>{{ currentOrder.order_id }}</td>
+        <td>{{ currentOrder.order_name }}</td>
+        <td>{{ currentOrder.from }}</td>
+        <td>{{ currentOrder.to }}</td>
+        <td>{{ currentOrder.quantity }}</td>
+        <td>{{ currentOrder.date }}</td>
+        <td>{{ currentOrder.approval }}</td>
         <td >
-            <div *ngIf="approved=='Accepted'">
-            <ngx-barcode [bc-value]=orderId [bc-display-value]="true"  [bc-format]="CODE128"></ngx-barcode>
+            <div *ngIf="currentOrder.approval == 'Accepted'">
+            <ngx-barcode [bc-value]="currentOrder.order_id" [bc-display-value]="true"  [bc-format]="CODE128"></ngx-barcode>
             <ng-template #elseBlock></ng-template>
             </div>
         </td>
