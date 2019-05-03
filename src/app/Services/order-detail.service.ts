@@ -19,8 +19,9 @@ export class OrderDetailService {
     'Accept': 'application/json',
     'Access-Control-Allow-Headers': 'Content-Type',
   }
+  
   //show order details of particular order_id
-  orderDetail(data)
+  orderDetail(data) : Observable<any>
   {
     //console.log(JSON.stringify(data));
     return this.http.post(this.url+"showDetails/order", JSON.stringify(data) , { headers : new Headers(this.headerDict) } ).map((response:any)=>response) ;

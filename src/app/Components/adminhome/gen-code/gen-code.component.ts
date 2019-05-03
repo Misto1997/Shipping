@@ -19,6 +19,7 @@ export class GenCodeComponent implements OnInit
  disp:boolean=false;
  currentOrder :  Order;
  order : FormGroup;
+ 
   ngOnInit() {
 
     this.order=new FormGroup({
@@ -40,10 +41,15 @@ export class GenCodeComponent implements OnInit
         const data = {"order_id": order.orderId}
         this.os.orderDetail(data).subscribe((response:Response)=>
                                             {
-                                              this.currentOrder = response.json(); 
-                                              //console.log(this.currentOrder);
-                                              this.us.setOrderDetail(this.currentOrder);
-                                              this.disp = true ;
+                                              if(response.json()["Status"])
+                                                alert(response.json()["Status"]);
+                                              else
+                                              {
+                                                this.currentOrder = response.json(); 
+                                                //console.log(this.currentOrder);
+                                                this.us.setOrderDetail(this.currentOrder);
+                                                this.disp = true ;
+                                              } 
                                             }
                                             );
 

@@ -55,6 +55,7 @@ export class UserService {
 
   getOrderDetail() : Order
   {
+    console.log(this.currentOrder);
     return this.currentOrder ;
   }
   
