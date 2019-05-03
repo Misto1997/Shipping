@@ -17,7 +17,7 @@ export class UserprofileComponent implements OnInit
 {
   user : User = { "mobileNo": 0,"name":"","age" : 0,"password":"","email":"","address":""};
 
-  constructor(public router:Router , public us :UserService) { }
+  constructor(private router:Router , public us :UserService ) { }
 
   ngOnInit() 
   {
@@ -30,13 +30,11 @@ export class UserprofileComponent implements OnInit
     this.us.getUser(data)
             .subscribe((response:Response)=>
                                             {
-                                              console.log(response.json());
+                                              //console.log(response.json());
                                               this.user = response.json();
                                             }
 
                       );    
-
-   
   }
 
 

@@ -24,6 +24,7 @@ import { HttpModule } from '@angular/http';
 import { AdminService } from './Services/admin.service';
 import { OrderDetailService } from './Services/order-detail.service';
 import { UserService } from './Services/user.service';
+import { SessionService } from './Services/session.service';
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import { UserService } from './Services/user.service';
     ReactiveFormsModule
     
   ],
-  providers: [LoginService,AdminService,OrderDetailService,UserService],
+  providers: [LoginService,AdminService,OrderDetailService,UserService , SessionService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

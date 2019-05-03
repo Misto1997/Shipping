@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Order } from 'src/app/Classes/usertab';
 import { FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
-
 import {formatDate} from '@angular/common';
-
 import { UserService } from 'src/app/Services/user.service';
+import { User } from 'src/app/Classes/user';
+import { LoginService } from 'src/app/Services/login.service';
+import { SessionService } from 'src/app/Services/session.service';
 
 @Component({
   selector: 'defaultuser',
@@ -14,17 +14,21 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class DefaultuserComponent implements OnInit {
 
-  order: Order = {"date":"","order_name":"","quantity":0,"from":"","to":"","mobileNo":0 ,"approval":"" , "order_id":0 };
+  order: Order  ;
   response : Response ;
   add: FormGroup;
   myDate=formatDate(new Date(), 'MM/dd/yyyy','en');
+  currentUser : User ;
 
-  constructor( public os :UserService) { 
-    
+  constructor( private os :UserService , private ls : LoginService , public ss : SessionService) 
+  { 
+  
   }
  
-  ngOnInit() {
-
+  ngOnInit() 
+  {
+    console.log(this.ss.getCurrentUser());
+   
     this.add=new FormGroup({
       date:new FormControl({value: 'myDate' , disabled :true}),
       pName:new FormControl('',[Validators.required]),
@@ -43,7 +47,9 @@ export class DefaultuserComponent implements OnInit {
           }  
         else
           {
+              console.log(this.currentUser.mobileNo);
               this.order  = new Order(this.myDate,add.pName,add.quantity,add.from,add.to,9464552572);
+             // console.log(this.order);
               this.os.addOrder(this.order)
                                           .subscribe((response:Response)=>
                                             {

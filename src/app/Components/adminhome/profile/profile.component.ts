@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ReactiveFormsModule  } from '@angular/forms';
 import { Response } from '@angular/http';
 import { AdminService } from 'src/app/Services//admin.service';
 import { Employee } from 'src/app/Classes/admintab';
@@ -29,7 +28,6 @@ export class ProfileComponent implements OnInit {
                                             {
                                               this.emp = response.json();
                                             }
-
                       );    
 
    

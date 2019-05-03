@@ -3,8 +3,8 @@ import {FormControl,FormGroup,Validators, AbstractControl, ValidatorFn, Validati
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Services/login.service';
 import { LoginUser , User } from 'src/app/Classes/user';
-import { ReactiveFormsModule  } from '@angular/forms';
-import { Response } from '@angular/http';
+import { Response, Http } from '@angular/http';
+import { StorageModule } from 'src/app/Modules/storage.module';
 
 
 @Component({
@@ -14,8 +14,8 @@ import { Response } from '@angular/http';
 })
 
 
-export class LoginComponent {
-
+export class LoginComponent 
+{
   login;
   signUp;
   loginSubmit : boolean = false ;
@@ -29,12 +29,14 @@ export class LoginComponent {
   suser: User={"name":"","email":"","mobileNo":0,"age":0,"address":"","password":""};
   response : Response ;
 
-  constructor(public router:Router,public ob:LoginService )
-  {}
+  constructor(private  router:Router,private ls :LoginService  )
+  {
+  }
   
   ngOnInit()
   {
-    
+    this.ls.setUserLoggedOut();
+
     if(this.captchaVal==true)
       this.call();
     this.login=new FormGroup({
@@ -67,7 +69,7 @@ export class LoginComponent {
   }
 
 
-
+//Login Submit button
   onLoginSubmit(login)
   {
       this.loginSubmit = true;
@@ -77,14 +79,16 @@ export class LoginComponent {
         return; 
       else
       {
-    
             this.luser = new LoginUser(login.cId,login.pass,login.loginType);
 
-            this.ob.getUser(this.luser)
+            this.ls.getUser(this.luser)
             .subscribe((response:Response)=>
                                             {
                                               if(response.json()["Status"]==="true")
-                                                this.router.navigateByUrl(login.loginType+'Home');
+                                              {
+                                                this.ls.setuserLoggedIn(this.luser);
+                                                this.router.navigateByUrl(login.loginType+'Home');                                              
+                                              }  
                                               else
                                                 alert(response.json()["Status"]);
                                             }
@@ -94,6 +98,7 @@ export class LoginComponent {
 
   }
 
+  //SignUp Submit button
   onSignUpSubmit(signUp)
   {
       this.signUpSubmit = true;
@@ -103,19 +108,21 @@ export class LoginComponent {
       {
         this.suser = new User(signUp.name , signUp.email , signUp.cId  , signUp.age , signUp.address , signUp.pass );
         
-        this.ob.postUser(this.suser)
+        this.ls.postUser(this.suser)
             .subscribe((response:Response)=>
                                             {
                                               
                                               if(response.json()["Status"]=== "true" )
                                               { 
-                                                console.log(response.json()["Status"])
-                                                this.router.navigateByUrl("/userHome");
+                                                //console.log(response.json()["Status"]);
+                                                alert("Account Created!!");
+                                                                                             
                                               } 
                                               else
                                                 alert(response.json()["Status"]);
                                             }
-                      )  
+                      );
+        this.router.navigateByUrl(""); 
       }         
     
   }
