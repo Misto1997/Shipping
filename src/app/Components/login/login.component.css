@@ -154,5 +154,23 @@ input[type='radio']
     margin-left: 30%;
     margin-right: 30%;
 }
+#logo{
+    font-family: 'Faster One', cursive,bold;
+    font-size: 55px;
+    color: tomato
+   }
+
+#x1{
+    font-family: 'Leckerli One', cursive;
+    font-size: 60px;
+   
+    color: #3E4551
+}
+#x2{
+    font-family: 'Leckerli One', cursive;
+    font-size: 50px;
+     color: #3E4551
+     
+}
 
 

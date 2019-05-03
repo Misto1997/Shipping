@@ -33,11 +33,29 @@
   input[type="date"]:valid:before {
     content: "";
   }
+
+  input[type=number],select,input[type=text] 
+  {
+      width: 600px;
+      padding: 8px 20px;
+      margin: 0px 0;
+      display: inline-block;
+      border: 1px solid black;
+      box-sizing: border-box;
+      font-size: 15px;
+      border-radius: 5px;
+  
+  }
+
+
 #b1{
     font-family: Courier New, Courier, monospace;
     margin-left: 5px;
     background-color: black;
     color: white;
+    width:200px;
+    font-size: 20px;
+    
 }
 #b1:hover{
     background-color: tomato;
@@ -56,13 +74,14 @@
 }
 form{
     
-   margin: 0 auto; 
-   margin-top: 8%;
-   padding-top: 16px;
-   padding-bottom: 19px;
-width:18%;
-text-align: center;
-border-radius: 8px;
+    margin: 0 auto; 
+    margin-top: 8%;
+    padding-top: 16px;
+    padding-bottom: 19px;
+    width:25%;
+    text-align: center;
+    border-radius: 8px;
+
 
 }
 #logo{
