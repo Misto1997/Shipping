@@ -12,8 +12,8 @@
 </tr>
 </thead>
 <tbody>
-<tr *ngFor="let detail of orders">
-<td></td>
+<tr *ngFor="let detail of orders; let rowIndex = index">
+<td>{{rowIndex+1}}</td>
 <td>{{detail.order_id}}</td>
 <td>{{detail.order_name}}</td>
 <td>{{detail.quantity}}</td>
