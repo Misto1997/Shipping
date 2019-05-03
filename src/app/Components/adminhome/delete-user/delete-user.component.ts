@@ -32,7 +32,7 @@ export class DeleteUserComponent implements OnInit
         }
       else
       {
-        console.log(deletef.deleteId);
+        //console.log(deletef.deleteId);
         const data = {"deleteId" : deletef.deleteId };
         this.as.removeUser(data)
             .subscribe((response:Response)=>

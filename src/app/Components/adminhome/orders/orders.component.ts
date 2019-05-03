@@ -3,6 +3,7 @@ import { AdminService } from 'src/app/Services/admin.service';
 import { Router } from '@angular/router';
 import { OrderDetailService } from 'src/app/Services/order-detail.service';
 import { Order } from 'src/app/Classes/usertab';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'orders',
@@ -12,10 +13,13 @@ import { Order } from 'src/app/Classes/usertab';
 export class OrdersComponent implements OnInit {
 
   submitted : boolean = true;
-  constructor( public router:Router, public as:AdminService , private os : OrderDetailService)
+  currentOrder : Order = { "order_id":0 ,"date": "" , "order_name" : "" ,"quantity": 0, "from": "","to": "",  "mobileNo": 0 ,"approval": ""};
+  orders : Order[] = [] ;
+
+  constructor( public router:Router, public as:AdminService , private os : OrderDetailService , private us : UserService)
   { }
 
-  orders : Order[] = [] ;
+  
   ngOnInit() 
   {
     this.showOrders();
@@ -60,6 +64,32 @@ export class OrdersComponent implements OnInit {
                                             }
 
                       );    
+  }
+
+
+  getOrder(order_id)
+  {
+    const data = {"order_id": order_id}
+    this.os.orderDetail(data).subscribe((response:Response)=>
+                                            {
+                                                //console.log(this.currentOrder);
+                                                //console.log( response.json()); 
+                                                
+                                                //console.log(response.json());
+   
+                                                this.currentOrder.order_id = response.json()['order_id'];
+                                                this.currentOrder.approval = response.json()['approval'];
+                                                this.currentOrder.date = response.json()['date'];
+                                                this.currentOrder.order_name = response.json()['order_name'];
+                                                this.currentOrder.quantity = response.json()['quantity'];
+                                                this.currentOrder.from = response.json()['from'];
+                                                this.currentOrder.to = response.json()['to'];
+                                                this.currentOrder.mobileNo = response.json()['mobileNo'];                                              
+                                                //console.log(this.currentOrder);
+                                                this.us.setOrderDetail(this.currentOrder);
+                                                this.router.navigateByUrl('adminHome/orderDetail');
+                                            });
+                                           
   }
 
 }

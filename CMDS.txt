@@ -39,7 +39,7 @@ create user(controller of db) :
 			
 see collections in the database :		show collections;
 
-delete collections : 				b.<collection_name>.drop()
+delete collections : 				db.<collection_name>.drop()
 
 
 create Collection:				db.createCollection('CollectionName');

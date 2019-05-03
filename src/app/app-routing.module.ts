@@ -25,7 +25,8 @@ const routes: Routes =
                     { path : "delUser" , component : DeleteUserComponent},
                     { path : "" ,  component : ProfileComponent },
                     { path : "addEmp" ,  component : AddEmployeeComponent } ,
-                    { path : "genCode" ,  component : GenCodeComponent } 
+                    { path : "genCode" ,  component : GenCodeComponent } ,
+                    { path : "orderDetail" , component : OrderdetailsComponent}
                  ]
     },
     { path : "userHome" , component : UserhomeComponent ,                   //, canActivate : [AuthenticateGuard] ,
