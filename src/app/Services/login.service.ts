@@ -21,8 +21,11 @@ export class LoginService {
     'Access-Control-Allow-Headers': 'Content-Type',
   }
   
-
-  constructor(private http:Http) { }
+  userLoggedIn :  boolean ;
+  constructor(private http:Http)
+  {
+    this.userLoggedIn =false;
+  }
 
   getUser(user : LoginUser) : Observable<any>
   {
@@ -40,4 +43,21 @@ export class LoginService {
 
   
 
+  //store current User
+ 
+
+  setuserLoggedIn()
+  {
+    this.userLoggedIn = true;
+  }
+
+  getUserLoggedIn()
+  {
+    return this.userLoggedIn;
+  }
+
+  setUserLoggedOut()
+  {
+    this.userLoggedIn= false;
+  }
 }

@@ -4,6 +4,7 @@ npm install -g rxjs
 npm install json-stringify
 npm install ngx-barcode
 
+ng generate guard GuardName
 
 
 python:-
@@ -11,7 +12,7 @@ pip install pymongo
 pip install jsonify
 pip3 install Flask-jsonpify
 pip install responses
-
+pip install flask_json
 
 
 

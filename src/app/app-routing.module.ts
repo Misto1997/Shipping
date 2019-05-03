@@ -14,11 +14,12 @@ import { UserorderComponent } from './Components/userhome/userorder/userorder.co
 import { UserprofileComponent} from './Components/userhome/userprofile/userprofile.component';
 import { DefaultuserComponent} from './Components/userhome/defaultuser/defaultuser.component';
 import { OrderdetailsComponent} from './Components/userhome/orderdetails/orderdetails.component';
+import { AuthenticateGuard } from './Authenticator/authenticate.guard';
 
 const routes: Routes =
  [
     { path : ""  , component : LoginComponent},
-    { path : "adminHome" , component : AdminhomeComponent ,                   //, canActivate : [AuthenticateGuard] ,
+    { path : "adminHome" , component : AdminhomeComponent , canActivate : [ AuthenticateGuard ] ,
       children : [
                     { path : "orders" ,  component : OrdersComponent} , 
                     { path : "logout" ,  component : LogoutComponent} , 
@@ -29,7 +30,7 @@ const routes: Routes =
                     { path : "orderDetail" , component : OrderdetailsComponent}
                  ]
     },
-    { path : "userHome" , component : UserhomeComponent ,                   //, canActivate : [AuthenticateGuard] ,
+    { path : "userHome" , component : UserhomeComponent , canActivate : [ AuthenticateGuard ] ,
       children : [
                     { path : "userContact" ,  component :  UsercontactComponent } , 
                     { path : "logout" ,  component : LogoutComponent} ,
