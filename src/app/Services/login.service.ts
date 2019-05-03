@@ -4,6 +4,9 @@ import {Response} from '@angular/http/src/static_response';
 import {Observable} from 'rxjs';
 import 'rxjs/rx';
 import {LoginUser, User} from '../Classes/user';
+import { UserService } from './user.service';
+import { AdminService } from './admin.service';
+import { Employee } from '../Classes/admintab';
 
 
 
@@ -13,42 +16,62 @@ import {LoginUser, User} from '../Classes/user';
 export class LoginService {
 
   url:string="http://localhost:5000/";
-
+    
 
    headerDict = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
     'Access-Control-Allow-Headers': 'Content-Type',
   }
-  
-  userLoggedIn :  boolean ;
-  constructor(private http:Http)
-  {
-    this.userLoggedIn =false;
-  }
 
-  getUser(user : LoginUser) : Observable<any>
+  constructor(private http:Http , private us : UserService , private as  : AdminService , public sm : StorageModule )
   {
     
-    //return this.http.get(this.url+"login/"+ user.type+"/"+user.mobileNo+"/"+user.pass).map((response:any)=>response)
+  }
+
+  //LOGIN
+  getUser(user : LoginUser) : Observable<any>
+  {
     return this.http.post(this.url+"login/" , JSON.stringify(user) , { headers : new Headers(this.headerDict) }).map((response:any)=>response);
   }
 
+  //SIGNUP
    postUser(user : User ) : Observable<any>
   {
-
-    //console.log(JSON.stringify(user));
     return this.http.post(  this.url+"signUp/user/", JSON.stringify(user) , { headers : new Headers(this.headerDict) , } ).map((response:any)=>response);
   }
 
+  currentUser : User | Employee ;
+  userLoggedIn :  boolean = false;
   
+  //store current User or Admin Details
 
-  //store current User
- 
-
-  setuserLoggedIn()
+  setuserLoggedIn(loginData) : void 
   {
+    const data = { "mobileNo" : loginData.mobileNo };
+
     this.userLoggedIn = true;
+    if(loginData.type === "admin")
+    {
+      this.as.getAdmin(data)
+            .subscribe((response:Response)=>
+                                            {                                              
+                                              this.currentUser = response.json();
+                                              this.sm.setCurrentUser(this.currentUser)
+                                            }
+                      );  
+    }  
+    else
+    {
+      this.us.getUser(data)
+            .subscribe((response:Response)=>
+                                            {                                              
+                                              this.currentUser = response.json();
+                                              this.sm.setCurrentUser(this.currentUser);
+                                            }
+                      );  
+    }                                          
+   
   }
 
   getUserLoggedIn()
@@ -58,6 +81,7 @@ export class LoginService {
 
   setUserLoggedOut()
   {
+    this.sm.setCurrentUser(null);
     this.userLoggedIn= false;
   }
 }
