@@ -126,7 +126,7 @@ export class LoginComponent {
   {
     
        this.seq = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
-       console.log(this.seq);
+       //console.log(this.seq);
     
   }
 
@@ -163,7 +163,7 @@ export class LoginComponent {
     const captcha = control.get('captchaValue');
       if( this.seq === captcha.value )
          {
-           console.log(captcha.value);
+           //console.log(captcha.value);
            return  null ;
          }
       else
