@@ -1,0 +1,18 @@
+#btn
+{
+    font-size: 20px;
+    padding: 5px;
+}
+
+#sub
+{
+    font-size: 22px;
+    margin-left: 5px;
+    background-color: black;
+    color: white;
+}
+
+#sub:hover
+{
+    background-color: lightseagreen;
+}

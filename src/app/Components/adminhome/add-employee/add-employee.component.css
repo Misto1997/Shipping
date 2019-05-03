@@ -28,6 +28,20 @@ input[type=text],input[type=number],input[type=password]{
     border-radius: 5px;
 }
 
+#add
+{
+    width:100%; 
+    margin-left: 150px;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+
+}
+#add:hover
+{
+    background-color: lightseagreen;
+}
+
 
 
  

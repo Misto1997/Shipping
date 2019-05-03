@@ -20,13 +20,13 @@
       <td>{{ detail.mobileNo }}</td>
       <td>
         <div *ngIf="detail.approval == 'Pending' " >
-            <input type="button" value="Accept" (click)="changeStatus('Accepted' , detail.order_id)" >
-            <input type="button" value="Reject" (click)="changeStatus('Rejected', detail.order_id )" >
+            <input  id="btn1" type="button" value="Accept" (click)="changeStatus('Accepted' , detail.order_id)" >
+            <input  id="btn2" type="button" value="Reject" (click)="changeStatus('Rejected', detail.order_id )" >
         </div>
         <div *ngIf="detail.approval != 'Pending' " >
            {{ detail.approval }}
         </div>
       </td>
-      <td ><button (click)="getOrder(detail.order_id)"  class="btn btn-outline-primary" id="t1">Click Here</button></td>
+      <td ><button (click)="getOrder(detail.order_id)"   id="t1">Click Here</button></td>
   </tr>
 </table>
