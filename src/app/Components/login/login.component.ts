@@ -113,9 +113,9 @@ export class LoginComponent
                                               
                                               if(response.json()["Status"]=== "true" )
                                               { 
-                                                //console.log(response.json()["Status"]);
-                                                alert("Account Created!!");
-                                                             
+                                                this.ss.setuserLoggedIn(this.suser);
+                                                this.router.navigateByUrl('userHome');   
+                                                                                             
                                               } 
                                               else
                                                 alert(response.json()["Status"]);
