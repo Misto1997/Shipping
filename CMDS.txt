@@ -3,6 +3,8 @@ angular:-
 npm install -g rxjs
 npm install json-stringify
 npm install ngx-barcode
+npm install @ngx-pwa/local-storage
+
 
 ng generate guard GuardName
 

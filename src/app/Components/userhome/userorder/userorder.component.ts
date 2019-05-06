@@ -30,7 +30,7 @@ export class UserorderComponent implements OnInit {
   showUserOrders()
   {
 
-    this.us.getUserOrder(this.ss.getCurrentUser())
+    this.us.getUserOrder(+this.ss.getCurrentUser())
             .subscribe((response:Response)=>
                                             {    
                                               //console.log(response.json()["Tables"]);

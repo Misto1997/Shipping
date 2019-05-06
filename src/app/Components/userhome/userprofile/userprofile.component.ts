@@ -27,7 +27,7 @@ export class UserprofileComponent implements OnInit
 
   showDetails()
   {
-    const data = {"mobileNo" : this.ss.getCurrentUser() };
+    const data = {"mobileNo" : +this.ss.getCurrentUser() };
     console.log(data);
     this.us.getUser(data)
             .subscribe((response:Response)=>

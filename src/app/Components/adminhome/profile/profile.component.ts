@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
 
   showDetails()
   {
-    const data = {"mobileNo" : this.ss.getCurrentUser() };
+    const data = {"mobileNo" : +this.ss.getCurrentUser() };
     this.as.getAdmin(data)
             .subscribe((response:Response)=>
                                             {

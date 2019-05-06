@@ -47,7 +47,7 @@ export class DefaultuserComponent implements OnInit {
           }  
         else
           {  
-              this.order  = new Order(this.myDate,add.pName,add.quantity,add.from,add.to, this.ss.getCurrentUser() );
+              this.order  = new Order(this.myDate,add.pName,add.quantity,add.from,add.to, +this.ss.getCurrentUser() );
               this.os.addOrder(this.order)
                                           .subscribe((response:Response)=>
                                             {
