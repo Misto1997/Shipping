@@ -7,8 +7,7 @@ export class Employee
     email:string;
     address:string;
    
-    
-    constructor(id,name,age,password,email,address)
+    constructor(id : number ,name : string ,age : number ,password : string ,email : string ,address : string )
     {
         this.mobileNo=id;
         this.name=name;

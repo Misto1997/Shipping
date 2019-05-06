@@ -18,7 +18,7 @@ import { AuthenticateGuard } from './Authenticator/authenticate.guard';
 
 const routes: Routes =
  [
-    { path : ""  , component : LoginComponent},
+    { path : ""  , component : LoginComponent  },
     { path : "adminHome" , component : AdminhomeComponent , canActivate : [ AuthenticateGuard ] ,
       children : [
                     { path : "orders" ,  component : OrdersComponent} , 

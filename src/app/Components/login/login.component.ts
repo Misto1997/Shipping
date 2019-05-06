@@ -115,7 +115,7 @@ export class LoginComponent
                                               { 
                                                 //console.log(response.json()["Status"]);
                                                 alert("Account Created!!");
-                                                                                             
+                                                             
                                               } 
                                               else
                                                 alert(response.json()["Status"]);

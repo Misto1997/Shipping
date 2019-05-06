@@ -9,12 +9,12 @@ export class SessionService {
 
 
   private mobileNo : number ;
-  private userLoggedIn :  boolean ;
+  private userLoggedIn :  boolean =  false;
 
   constructor(private as : AdminService , private us  : UserService )
   {
-    this.mobileNo = 0;
-    this.userLoggedIn = false ;
+    // this.mobileNo = 0;
+    // this.userLoggedIn = false ;
   }
 
   ngOnInit()
