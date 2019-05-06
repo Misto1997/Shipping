@@ -53,6 +53,12 @@
 
         <tr><label for="type" id="labels"><b>Enter Captcha</b></label><br><br></tr>
         <tr>
+          <td >
+              <button type="button" class="btn btn-default btn-sm" (click)="call()">
+                  <span class="glyphicon glyphicon-refresh"></span> Refresh
+                </button>
+          </td>
+          
           <td>
             <div id="captchaDiv" *ngIf="captchaVal"><b id="c3">{{seq}}</b> <input type="text"
                 formControlName="captchaValue" id="captcha" /></div>
@@ -82,7 +88,7 @@
     <form [formGroup]="signUp" (ngSubmit)="onSignUpSubmit(signUp.value)">
       <br>
       <table id="f1">
-        <tr><label for="name"><b id="labels">Full Name</b></label><br></tr>
+        <tr><label for="name"><b id="labels">Full Name</b></label></tr>
         <tr>
           <td><input type="text" name="name" placeholder="Your Full Name......" formControlName="name" /></td>
           <td>
@@ -97,7 +103,7 @@
         </tr>
 
 
-        <tr><label for="email"><b id="labels">Email id</b></label><br></tr>
+        <tr><label for="email"><b id="labels">Email id</b></label></tr>
         <tr>
           <td><input type="text" name="email" placeholder="Your email id......" formControlName="email" /></td>
           <td>

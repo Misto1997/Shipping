@@ -71,8 +71,6 @@ export class LoginComponent
   onLoginSubmit(login) 
   {
     this.loginSubmit = true;
-    if (this.captchaVal == true)
-      this.call();
     if (this.login.invalid)
       return;
     else 
