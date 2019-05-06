@@ -53,15 +53,14 @@
 
         <tr><label for="type" id="labels"><b>Enter Captcha</b></label><br><br></tr>
         <tr>
-          <td >
-              <button type="button" class="btn btn-default btn-sm" (click)="call()">
-                  <span class="glyphicon glyphicon-refresh"></span> Refresh
-                </button>
-          </td>
-          
           <td>
-            <div id="captchaDiv" *ngIf="captchaVal"><b id="c3">{{seq}}</b> <input type="text"
-                formControlName="captchaValue" id="captcha" /></div>
+            <span>
+              <button id="r1" type="button" (click)="call()"> Refresh </button>
+            </span>
+
+            <span id="captchaDiv" *ngIf="captchaVal"><b id="c3">{{seq}}</b> </span>
+
+           <span>  <input type="text"   formControlName="captchaValue" id="captcha" /></span> 
           </td>
 
           <td>
