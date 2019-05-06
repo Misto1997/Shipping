@@ -36,6 +36,5 @@ export class ContactUs
         this.email = email;
         this.pNumber = pNumber;
         this.msg = msg;
-
     }
 }

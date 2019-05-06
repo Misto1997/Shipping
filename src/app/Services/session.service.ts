@@ -31,7 +31,7 @@ export class SessionService {
    
     //this.mobileNo = loginData.mobileNo ;
   }
-  getCurrentUser() 
+  getCurrentUser() : string
   {
     
     return localStorage.getItem('mobileNo') ;

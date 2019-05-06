@@ -7,10 +7,9 @@ import { Router } from '@angular/router';
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.css']
 })
-export class LogoutComponent implements OnInit {
-
-  constructor(private ss : SessionService , private router : Router) 
-  {}
+export class LogoutComponent implements OnInit 
+{
+  constructor(private ss: SessionService, private router: Router) { }
 
   ngOnInit() 
   {

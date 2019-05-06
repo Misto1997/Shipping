@@ -10,8 +10,9 @@ import { AdminService } from 'src/app/Services/admin.service';
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.css']
 })
-export class AddEmployeeComponent implements OnInit 
-{
+export class AddEmployeeComponent implements OnInit
+ {
+
   addEmpForm: FormGroup;
   nameVal: string;
   submitted: boolean = false;
@@ -19,8 +20,7 @@ export class AddEmployeeComponent implements OnInit
   response: Response;
 
 
-  constructor(private router: Router, private as: AdminService)
-  { }
+  constructor(private router: Router, private as: AdminService) { }
 
   ngOnInit() 
   {
@@ -68,21 +68,20 @@ export class AddEmployeeComponent implements OnInit
   {
     this.submitted = true;
 
-    if (this.addEmpForm.invalid) 
+    if (this.addEmpForm.invalid)
       return;
     else 
     {
       this.addemp = new Employee(add.mobileNo, add.name, add.age, add.password, add.email, add.address)
 
       this.as.postEmp(this.addemp)
-        .subscribe((response: Response) => {
+        .subscribe((response: Response) => 
+        {
 
           if (response.json()["Status"] === "true") 
           {
-            this.addEmpForm.reset();
             alert("Employee added");
-            
-            //this.router.navigateByUrl("/userHome");
+            this.addEmpForm.reset();
           }
           else
             alert(response.json()["Status"]);
@@ -97,20 +96,6 @@ export class AddEmployeeComponent implements OnInit
   {
     return this.addEmpForm.controls;
   }
-
-
-  // mobVal: ValidatorFn = (control: FormGroup): ValidationErrors | null => 
-  // {
-  //   const mobno = control.get('mobileNo');
-
-  //     if( mobno.value < 10000000000 && mobno.value > 999999999)
-  //        return  null ;
-  //     else
-  //     {
-  //         mobno.setErrors({ 'mobVal' : true});
-  //         return  ;
-  //     }  
-  // }
 
   ageVal: ValidatorFn = (control: FormGroup): ValidationErrors | null => 
   {
@@ -133,7 +118,7 @@ export class AddEmployeeComponent implements OnInit
 
     if (pass.value === cpass.value)
       return null;
-    else
+    else 
     {
       cpass.setErrors({ 'noMatch': true });
       return;

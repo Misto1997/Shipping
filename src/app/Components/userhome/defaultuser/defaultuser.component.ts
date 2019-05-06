@@ -18,7 +18,7 @@ export class DefaultuserComponent implements OnInit {
   response : Response ;
   add: FormGroup;
   myDate=formatDate(new Date(), 'MM/dd/yyyy','en');
-  currentUser : User ;
+  currentUser : number ;
 
   constructor( private os :UserService , private ls : LoginService , public ss : SessionService) 
   { 
@@ -27,8 +27,8 @@ export class DefaultuserComponent implements OnInit {
  
   ngOnInit() 
   {
-    //console.log(this.ss.getCurrentUser());
-   
+    this.currentUser = +this.ss.getCurrentUser();
+
     this.add=new FormGroup({
       date:new FormControl({value: 'myDate' , disabled :true}),
       pName:new FormControl('',[Validators.required]),

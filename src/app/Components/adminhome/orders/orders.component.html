@@ -10,23 +10,23 @@
     <th>CustomerID</th>
     <th>Approval</th>
     <th>Details</th>
-  </tr> 
+  </tr>
 
   <tr *ngFor="let detail of orders">
-      <td>{{ detail.order_id }}</td>
-      <td>{{ detail.date }}</td>
-      <td>{{ detail.from }}</td>
-      <td>{{ detail.to }}</td>
-      <td>{{ detail.mobileNo }}</td>
-      <td>
-        <div *ngIf="detail.approval == 'Pending' " >
-            <input  id="btn1" type="button" value="Accept" (click)="changeStatus('Accepted' , detail.order_id)" >
-            <input  id="btn2" type="button" value="Reject" (click)="changeStatus('Rejected', detail.order_id )" >
-        </div>
-        <div *ngIf="detail.approval != 'Pending' " >
-           {{ detail.approval }}
-        </div>
-      </td>
-      <td ><button (click)="getOrder(detail.order_id)"   id="t1">Click Here</button></td>
+    <td>{{ detail.order_id }}</td>
+    <td>{{ detail.date }}</td>
+    <td>{{ detail.from }}</td>
+    <td>{{ detail.to }}</td>
+    <td>{{ detail.mobileNo }}</td>
+    <td>
+      <div *ngIf="detail.approval == 'Pending' ">
+        <input id="btn1" type="button" value="Accept" (click)="changeStatus('Accepted' , detail.order_id)">
+        <input id="btn2" type="button" value="Reject" (click)="changeStatus('Rejected', detail.order_id )">
+      </div>
+      <div *ngIf="detail.approval != 'Pending' ">
+        {{ detail.approval }}
+      </div>
+    </td>
+    <td><button (click)="getOrder(detail.order_id)" id="t1">Click Here</button></td>
   </tr>
 </table>

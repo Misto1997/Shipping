@@ -2,10 +2,8 @@
 <hr>
 <form [formGroup]="delete" (ngSubmit)="deleteUser(delete.value)" style="text-align: center">
 
-    <label  for="deleteUser"><b style="font-size: 25px;">User Id : </b></label>
+    <label for="deleteUser"><b style="font-size: 25px;">User Id : </b></label>
     <input id="btn" type="number" placeholder="Enter User Id here.." formControlName="deleteId" />
-    <input id="sub" type="Submit" value="delete"/>
+    <input id="sub" type="Submit" value="delete" />
 
 </form>
-
-

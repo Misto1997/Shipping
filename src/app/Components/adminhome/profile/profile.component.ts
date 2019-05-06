@@ -10,28 +10,24 @@ import { SessionService } from 'src/app/Services/session.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit 
+{
 
-  emp : Employee = { "mobileNo": 0,"name":"","age" : 0,"password":"","email":"","address":""};
+  emp: Employee = { "mobileNo": 0, "name": "", "age": 0, "password": "", "email": "", "address": "" };
 
-  constructor(public router:Router,public as:AdminService , private ss : SessionService) 
-  {}
+  constructor(private router: Router, private as: AdminService, private ss: SessionService) { }
 
   ngOnInit() 
   {
     this.showDetails();
   }
 
-  showDetails()
+  //show details of current admin
+  showDetails() 
   {
-    const data = {"mobileNo" : +this.ss.getCurrentUser() };
-    this.as.getAdmin(data)
-            .subscribe((response:Response)=>
-                                            {
-                                              this.emp = response.json();
-                                            }
-                      );    
-
-   
+    const data = { "mobileNo": +this.ss.getCurrentUser() };
+    this.as.getAdmin(data).subscribe((response: Response)=>this.emp=response.json());
   }
+
+
 }
