@@ -52,6 +52,7 @@ export class DefaultuserComponent implements OnInit {
                                           .subscribe((response:Response)=>
                                             {
                                               alert(response.json()["Status"]);
+                                              this.add.reset();
                                             }
                       );    
           }

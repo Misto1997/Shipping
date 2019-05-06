@@ -35,6 +35,7 @@ export class UsercontactComponent implements OnInit {
           {
             this.contactus = new ContactUs(contact.name,contact.email,contact.pNumber,contact.msg);
             alert(this.ob.contactUs(this.contactus));
+            this.contact.reset();
           }
     }
 
