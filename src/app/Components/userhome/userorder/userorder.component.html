@@ -1,24 +1,29 @@
 <p style="font-size: 40px;text-align: center">My Orders</p>
 <hr>
 <table class="darkTable">
-<thead>
-<tr>
-<th>S.no</th>
-<th>Order Id</th>
-<th>Order Name</th>
-<th>Quantity</th>
-<th>Approval</th>
-<th>More Detail<th>
-</tr>
-</thead>
-<tbody>
-<tr *ngFor="let detail of orders; let rowIndex = index">
-<td>{{rowIndex+1}}</td>
-<td>{{detail.order_id}}</td>
-<td>{{detail.order_name}}</td>
-<td>{{detail.quantity}}</td>
-<td>{{detail.approval}}</td>
-<td ><button (click)="orderDetail(detail.order_id)"  class="btn btn-outline-primary" id="t1">Click Here</button></td>
-</tr>
-</tbody>
+    <thead>
+        <tr>
+            <th>S.no</th>
+            <th>Order Id</th>
+            <th>Order Name</th>
+            <th>Quantity</th>
+            <th>Approval</th>
+            <th>More Detail
+            <th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let detail of orders; let rowIndex = index">
+            <td>{{rowIndex+1}}</td>
+            <td>{{detail.order_id}}</td>
+            <td>{{detail.order_name}}</td>
+            <td>{{detail.quantity}}</td>
+            <td>{{detail.approval}}</td>
+            <td>
+                <button (click)="orderDetail(detail.order_id)" class="btn btn-outline-primary" id="t1">
+                    Click Here
+                </button>
+            </td>
+        </tr>
+    </tbody>
 </table>
