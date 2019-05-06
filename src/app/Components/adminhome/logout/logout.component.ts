@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/Services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'logout',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ss : SessionService , private router : Router) 
+  {}
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.ss.setUserLoggedOut();
+    this.router.navigateByUrl('');
   }
 
 }

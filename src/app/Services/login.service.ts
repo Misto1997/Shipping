@@ -6,7 +6,7 @@ import 'rxjs/rx';
 import {LoginUser, User} from '../Classes/user';
 import { UserService } from './user.service';
 import { AdminService } from './admin.service';
-import { Employee } from '../Classes/admintab';
+import { SessionService } from './session.service';
 
 
 
@@ -24,9 +24,8 @@ export class LoginService {
     'Access-Control-Allow-Headers': 'Content-Type',
   }
 
-  constructor(private http:Http , private us : UserService , private as  : AdminService , public sm : StorageModule )
+  constructor(private http:Http , private us : UserService , private as  : AdminService , public ss : SessionService )
   {
-    
   }
 
   //LOGIN
@@ -41,47 +40,6 @@ export class LoginService {
     return this.http.post(  this.url+"signUp/user/", JSON.stringify(user) , { headers : new Headers(this.headerDict) , } ).map((response:any)=>response);
   }
 
-  currentUser : User | Employee ;
-  userLoggedIn :  boolean = false;
   
-  //store current User or Admin Details
 
-  setuserLoggedIn(loginData) : void 
-  {
-    const data = { "mobileNo" : loginData.mobileNo };
-
-    this.userLoggedIn = true;
-    if(loginData.type === "admin")
-    {
-      this.as.getAdmin(data)
-            .subscribe((response:Response)=>
-                                            {                                              
-                                              this.currentUser = response.json();
-                                              this.sm.setCurrentUser(this.currentUser)
-                                            }
-                      );  
-    }  
-    else
-    {
-      this.us.getUser(data)
-            .subscribe((response:Response)=>
-                                            {                                              
-                                              this.currentUser = response.json();
-                                              this.sm.setCurrentUser(this.currentUser);
-                                            }
-                      );  
-    }                                          
-   
-  }
-
-  getUserLoggedIn()
-  {
-    return this.userLoggedIn;
-  }
-
-  setUserLoggedOut()
-  {
-    this.sm.setCurrentUser(null);
-    this.userLoggedIn= false;
-  }
 }

@@ -46,6 +46,12 @@ export class UserService {
         return "Thanks for Reaching Us.. we will contact you soon..";
     }
 
+    getUserOrder(mobileNo : number ) : Observable<any>
+    {
+      //console.log(mobileNo);
+      return this.http.get(this.url+"showUserOrders/"+mobileNo).map((response:any)=>response);
+    }
+
 // getter and setter for OrderDetails page
   setOrderDetail(currentOrder : Order )
   {

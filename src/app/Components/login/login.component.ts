@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Services/login.service';
 import { LoginUser , User } from 'src/app/Classes/user';
 import { Response, Http } from '@angular/http';
-import { StorageModule } from 'src/app/Modules/storage.module';
+import { SessionService } from 'src/app/Services/session.service';
 
 
 @Component({
@@ -29,13 +29,13 @@ export class LoginComponent
   suser: User={"name":"","email":"","mobileNo":0,"age":0,"address":"","password":""};
   response : Response ;
 
-  constructor(private  router:Router,private ls :LoginService  )
+  constructor(private  router:Router,private ls :LoginService , private ss : SessionService )
   {
   }
   
   ngOnInit()
   {
-    this.ls.setUserLoggedOut();
+    this.ss.setUserLoggedOut();
 
     if(this.captchaVal==true)
       this.call();
@@ -52,7 +52,7 @@ export class LoginComponent
     );
 
     this.signUp=new FormGroup({
-        name:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z ]+')]),
+      name:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z ]+')]),
       email:new FormControl('',[Validators.required,Validators.email]),
       cId:new FormControl('',[Validators.required,Validators.pattern('[6-9]{1}[0-9]{9}')]),
       age:new FormControl('',[Validators.required]),
@@ -86,13 +86,12 @@ export class LoginComponent
                                             {
                                               if(response.json()["Status"]==="true")
                                               {
-                                                this.ls.setuserLoggedIn(this.luser);
+                                                this.ss.setuserLoggedIn(this.luser);
                                                 this.router.navigateByUrl(login.loginType+'Home');                                              
                                               }  
                                               else
                                                 alert(response.json()["Status"]);
                                             }
-
                       );             
       }
 

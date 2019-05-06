@@ -27,7 +27,7 @@ export class DefaultuserComponent implements OnInit {
  
   ngOnInit() 
   {
-    console.log(this.ss.getCurrentUser());
+    //console.log(this.ss.getCurrentUser());
    
     this.add=new FormGroup({
       date:new FormControl({value: 'myDate' , disabled :true}),
@@ -46,16 +46,13 @@ export class DefaultuserComponent implements OnInit {
               return;
           }  
         else
-          {
-              console.log(this.currentUser.mobileNo);
-              this.order  = new Order(this.myDate,add.pName,add.quantity,add.from,add.to,9464552572);
-             // console.log(this.order);
+          {  
+              this.order  = new Order(this.myDate,add.pName,add.quantity,add.from,add.to, this.ss.getCurrentUser() );
               this.os.addOrder(this.order)
                                           .subscribe((response:Response)=>
                                             {
                                               alert(response.json()["Status"]);
                                             }
-
                       );    
           }
     }

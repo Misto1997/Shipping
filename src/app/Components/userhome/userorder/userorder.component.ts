@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { OrderDetailService } from 'src/app/Services/order-detail.service';
 import { UserService } from 'src/app/Services/user.service';
 import { OrderdetailsComponent } from '../orderdetails/orderdetails.component';
+import { SessionService } from 'src/app/Services/session.service';
 
 @Component({
   selector: 'userorder',
@@ -15,27 +16,29 @@ export class UserorderComponent implements OnInit {
   orders : Order[] = [] ;
   currentOrder : Order = { "order_id":0 ,"date": "" , "order_name" : "" ,"quantity": 0, "from": "","to": "",  "mobileNo": 0 ,"approval": ""} ;
 
-  constructor( public router:Router  , private os : OrderDetailService , private us : UserService) 
+  constructor( public router:Router  , private os : OrderDetailService , private us : UserService , private ss : SessionService) 
   { 
 
   }
   ngOnInit() 
   {
-    this.showOrders();
+    this.showUserOrders();
   }
 
 
 
-  showOrders()
+  showUserOrders()
   {
-    this.os.getOrders()
+
+    this.us.getUserOrder(this.ss.getCurrentUser())
             .subscribe((response:Response)=>
-                                            {                                    ;
-                                              for(var i=0 ; i< response["Tables"].length ; i++)
+                                            {    
+                                              //console.log(response.json()["Tables"]);
+                                              for(var i=0 ; i< response.json()["Tables"].length ; i++)
                                               {
-                                                this.orders[i] = response["Tables"][i] ; 
+                                                this.orders[i] = response.json()["Tables"][i] ; 
                                               }
-                                              //console.log(this.orders);
+                                              console.log(this.orders);
                                             }
 
                       );    
@@ -43,7 +46,7 @@ export class UserorderComponent implements OnInit {
 
 
   orderDetail(order_id)
-  {
+  { 
     const data = {"order_id": order_id}
     this.os.orderDetail(data).subscribe((response:Response)=>
                                             {
