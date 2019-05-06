@@ -79,8 +79,9 @@ export class AddEmployeeComponent implements OnInit
 
           if (response.json()["Status"] === "true") 
           {
-            alert("Employee added");
             this.addEmpForm.reset();
+            alert("Employee added");
+            
             //this.router.navigateByUrl("/userHome");
           }
           else
