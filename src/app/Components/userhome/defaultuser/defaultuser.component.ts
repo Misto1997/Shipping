@@ -18,7 +18,7 @@ export class DefaultuserComponent implements OnInit
   response: Response;
   add: FormGroup;
   myDate = formatDate(new Date(), 'MM/dd/yyyy', 'en');
-  currentUser: number;
+  currentUser : number;
 
   constructor(private os: UserService , private ss: SessionService) { }
 
@@ -31,7 +31,8 @@ export class DefaultuserComponent implements OnInit
       pName: new FormControl('', [Validators.required]),
       quantity: new FormControl('', [Validators.required]),
       from: new FormControl('', [Validators.required]),
-      to: new FormControl('', [Validators.required])
+      to: new FormControl('', [Validators.required]) , 
+      mobileNo : new FormControl({ value : 'currentUser' , disabled: true })
     });
 
   }
