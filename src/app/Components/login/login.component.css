@@ -146,18 +146,14 @@ input[type='radio']
 {
     width: 100px;
     height: 50px;
-    float: left;
-    margin-right: 17%;
+    margin-right: 20%;
+   
     
 }
 #captchaDiv{
-    float: left;
-    margin-left: 10%;
-    margin-right: 30px;
+   
 }
-div{
-    border: solid black 2px;
-}
+
 
 #logo{
     font-family: 'Faster One', cursive,bold;
@@ -177,10 +173,14 @@ div{
      color: #3E4551
      
 }
-#r1{
-    float: left;
+#refresh{
+    float: left;;
     margin-left: 20%;
     border-radius: 5px;
+    font-size: 15px;
+    margin-top: 15px;
+    background-color: aqua;
+    margin-right: 10%;
     
     
 }

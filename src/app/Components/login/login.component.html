@@ -1,5 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <span id="x1"> Welcome to<span id="logo"> Ship Fast </span> <br></span>
 <span id="x2">Top rated courier services in the town</span>
 <br><br>
@@ -55,22 +56,26 @@
         <tr>
           <td>
             <span>
-              <button id="r1" type="button" (click)="call()"> Refresh </button>
+              <button  id="refresh" (click)="call()"><i class="fa fa-refresh"></i></button>
+              
             </span>
 
             <span id="captchaDiv" *ngIf="captchaVal"><b id="c3">{{seq}}</b> </span>
 
            <span>  <input type="text"   formControlName="captchaValue" id="captcha" /></span> 
           </td>
-
+        
+         
           <td>
             <div *ngIf="loginSubmit && loginPush.captchaValue.errors">
               <div *ngIf="loginPush.captchaValue.errors.misMatch"><b style="color: red">*captcha mismatch</b></div>
             </div>
           </td>
         </tr>
-
+      
+              
         <br>
+        
 
 
         <input id="submit" type="submit" value="Login" />
