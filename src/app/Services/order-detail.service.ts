@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Employee } from '../Classes/admintab';
 import { Headers ,  Http} from '@angular/http';
+import { Connectivity } from '../Classes/Connectivity';
 
 
 @Injectable({
@@ -9,21 +9,14 @@ import { Headers ,  Http} from '@angular/http';
 })
 export class OrderDetailService {
 
-  constructor(private http:Http) 
-  { }
+  constructor(private http:Http) { }
 
-  url:string="http://localhost:5000/";
-
-  headerDict = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  }
+  url: string = Connectivity.getUrl() ;
+  headerDict = Connectivity.getHeaders();
   
   //show order details of particular order_id
   orderDetail(data) : Observable<any>
   {
-    //console.log(JSON.stringify(data));
     return this.http.post(this.url+"showDetails/order", JSON.stringify(data) , { headers : new Headers(this.headerDict) } ).map((response:any)=>response) ;
   }
 

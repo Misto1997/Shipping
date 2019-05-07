@@ -1,53 +1,43 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../Classes/admintab';
-import { Headers ,  Http} from '@angular/http';
-import {Observable} from 'rxjs';
+import { Headers, Http } from '@angular/http';
+import { Observable } from 'rxjs';
+import { Connectivity } from '../Classes/Connectivity';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdminService {
+export class AdminService 
+{
 
-  constructor(private http:Http) { }
+  constructor(private http: Http) { }
 
-  url:string="http://localhost:5000/";
-
-  headerDict = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  }
+  url: string = Connectivity.getUrl() ;
+  headerDict = Connectivity.getHeaders();
 
   //Admin Profile
-  getAdmin(mobileNo) : Observable<any>
+  getAdmin(mobileNo): Observable<any> 
   {
-    return this.http.post(this.url+"showDetails/admin" , JSON.stringify(mobileNo) , { headers : new Headers(this.headerDict) }).map((response:any)=>response);
+    return this.http.post(this.url + "showDetails/admin", JSON.stringify(mobileNo), {headers: new Headers(this.headerDict)} ).map((response: any) => response);
   }
 
   //Change the approval state of order
-  changeApproval(data) : Observable<any>
+  changeApproval(data): Observable<any> 
   {
-    return this.http.post(this.url+"approval/" , JSON.stringify(data) , { headers : new Headers(this.headerDict) }).map((response:any)=>response);
+    return this.http.post(this.url + "approval/", JSON.stringify(data), {headers: new Headers(this.headerDict)} ).map((response: any) => response);
   }
 
   //delete user 
-  removeUser(data) : Observable<any>
+  removeUser(data): Observable<any> 
   {
-   
-    return this.http.delete(this.url+"remove/user/"+data["deleteId"]).map((response:any)=>response.json())
-    
+    return this.http.delete(this.url + "remove/user/" + data["deleteId"]).map((response: any) => response.json())
   }
 
 
   //add Admin
-  postEmp(emp : Employee ) : Observable<any>
+  postEmp(emp: Employee): Observable<any> 
   {
-    //console.log(emp);
-    return this.http.post(  this.url+"signUp/admin/", JSON.stringify(emp) , { headers : new Headers(this.headerDict) , } ).map((response:any)=>response);
+    return this.http.post(this.url + "signUp/admin/", JSON.stringify(emp), {headers: new Headers(this.headerDict)} ).map((response: any) => response);
   }
-
-  
-
-
 
 }
