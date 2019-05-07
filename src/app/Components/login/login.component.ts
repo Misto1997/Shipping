@@ -72,7 +72,7 @@ export class LoginComponent
   {
     this.loginSubmit = true;
     if (this.login.invalid)
-      return;
+        return;
     else 
     {
       this.luser = new LoginUser(login.cId, login.pass, login.loginType);
@@ -90,6 +90,7 @@ export class LoginComponent
         }
         );
     }
+     
   }
 
 
@@ -166,7 +167,6 @@ export class LoginComponent
     const captcha = control.get('captchaValue');
     if (this.seq === captcha.value) 
     {
-      //console.log(captcha.value);
       return null;
     }
     else 
