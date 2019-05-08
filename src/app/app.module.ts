@@ -19,7 +19,7 @@ import { UserorderComponent } from './Components/userhome/userorder/userorder.co
 import { UserprofileComponent} from './Components/userhome/userprofile/userprofile.component';
 import { OrderdetailsComponent } from './Components/userhome/orderdetails/orderdetails.component';
 import { DefaultuserComponent } from './Components/userhome/defaultuser/defaultuser.component';
-import {LoginService} from './Services/login.service';
+import { LoginService } from './Services/login.service';
 import { HttpModule } from '@angular/http';
 import { AdminService } from './Services/admin.service';
 import { OrderDetailService } from './Services/order-detail.service';
